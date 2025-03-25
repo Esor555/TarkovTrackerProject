@@ -1,0 +1,322 @@
+{
+  "Shooting Range Lvl.1": [
+    { "item": "Screw nuts", "short_name": "Nuts", "amount": 1 },
+    { "item": "Bolts", "short_name": "Bolts", "amount": 1 },
+    { "item": "Metal Spare Parts", "short_name": "M.parts", "amount": 1 },
+    { "item": "Rubles", "short_name": "Rubles", "amount": 20000 }
+  ],
+  "Shooting Range Lvl.2": [
+    { "item": "Toolset", "short_name": "Toolset", "amount": 1 },
+    { "item": "Metal Spare Parts", "short_name": "M.parts", "amount": 5 },
+    { "item": "Construction Measuring Tape", "short_name": "MTape", "amount": 1 },
+    { "item": "Bundle of Wires", "short_name": "Wires", "amount": 3 },
+    { "item": "Pack of Screws", "short_name": "Screws", "amount": 3 },
+    { "item": "Tube of Poxeram", "short_name": "Poxeram", "amount": 1 },
+    { "item": "Electric Motor", "short_name": "Motor", "amount": 6 },
+    { "item": "Energy-saving Lamp", "short_name": "ES Lamp", "amount": 6 },
+    { "item": "WI-FI Camera", "short_name": "Camera", "amount": 3 },
+    { "item": "Electric Drill", "short_name": "Drill", "amount": 1 }
+  ],
+  "Shooting Range Lvl.3": [
+    { "item": "Set of files \"Master\"", "short_name": "Master", "amount": 1 },
+    { "item": "Bundle of wires", "short_name": "Wires", "amount": 5 },
+    { "item": "Printed Circuit Board", "short_name": "PCB", "amount": 3 },
+    { "item": "Metal Spare Parts", "short_name": "M.parts", "amount": 5 },
+    { "item": "Capacitors", "short_name": "Caps", "amount": 5 },
+    { "item": "Phase Control Relay", "short_name": "Relay", "amount": 3 },
+    { "item": "Power Cord", "short_name": "Cord", "amount": 5 },
+    { "item": "Leatherman Multitool", "short_name": "Multitool", "amount": 1 },
+    { "item": "Tech Manual", "short_name": "Manual", "amount": 1 }
+  ],
+  "Lavatory Lvl.1": [
+    { "item": "Toilet paper", "short_name": "TP", "amount": 1 },
+    { "item": "Toothpaste", "short_name": "Toothpaste", "amount": 1 },
+    { "item": "Soap", "short_name": "Soap", "amount": 1 },
+    { "item": "Awl", "short_name": "Awl", "amount": 1 },
+    { "item": "Rubles", "short_name": "Rubles", "amount": 2000 }
+  ],
+  "Lavatory Lvl.2": [
+    { "item": "Corrugated hose", "short_name": "Hose", "amount": 3 },
+    { "item": "Pack of Screws", "short_name": "Screws", "amount": 5 },
+    { "item": "Electric drill", "short_name": "Drill", "amount": 1 },
+    { "item": "KEKTAPE duct tape", "short_name": "KEK", "amount": 1 },
+    { "item": "Sewing Kit", "short_name": "Krasavch.", "amount": 2 }
+  ],
+  "Lavatory Lvl.3": [
+    { "item": "Corrugated hose", "short_name": "Hose", "amount": 1 },
+    { "item": "Pressure Gauge", "short_name": "PGauge", "amount": 2 },
+    { "item": "Toolset", "short_name": "Toolset", "amount": 1 },
+    { "item": "Xenomorph Sealing Foam", "short_name": "Xeno", "amount": 3 }
+  ],
+  "Workbench Lvl.1": [
+    { "item": "Screw nuts", "short_name": "Nuts", "amount": 2 },
+    { "item": "Bolts", "short_name": "Bolts", "amount": 2 },
+    { "item": "Leatherman MultiTool", "short_name": "MultiTool", "amount": 1 }
+  ],
+  "Workbench Lvl.2": [
+    { "item": "Toolset", "short_name": "Toolset", "amount": 3 },
+    { "item": "Electric Drill", "short_name": "Drill", "amount": 2 },
+    { "item": "Bolts", "short_name": "Bolts", "amount": 6 },
+    { "item": "Weapon Parts", "short_name": "WParts", "amount": 3 },
+    { "item": "Set of files \"Master\"", "short_name": "Master", "amount": 1 }
+  ],
+  "Workbench Lvl.3": [
+    { "item": "Pliers Elite", "short_name": "Elite", "amount": 2 },
+    { "item": "#FireKlean gun lube", "short_name": "#FireKlean", "amount": 1 },
+    { "item": "Can of thermite", "short_name": "Thermite", "amount": 2 },
+    { "item": "Rubles", "short_name": "Rubles", "amount": 395000 }
+  ],
+  "Intelligence Center Lvl.1": [
+    { "item": "Intelligence folder", "short_name": "Intelligence", "amount": 1 },
+    { "item": "Topographic Survey Maps", "short_name": "Maps", "amount": 1 },
+    { "item": "Factory Plan Map", "short_name": "Factory", "amount": 1 }
+  ],
+  "Intelligence Center Lvl.2": [
+    { "item": "Intelligence folder", "short_name": "Intelligence", "amount": 3 },
+    { "item": "Secure Flash Drive", "short_name": "Flash Drive", "amount": 3 },
+    { "item": "Power Cord", "short_name": "Cord", "amount": 7 },
+    { "item": "Damaged Hard Drive", "short_name": "HDD", "amount": 4 }
+  ],
+  "Intelligence Center Lvl.3": [
+    { "item": "Military COFDM Wireless Signal Transmitter", "short_name": "SG-C10", "amount": 2 },
+    { "item": "VPX Flash Storage Module", "short_name": "VPX", "amount": 2 },
+    { "item": "Military Flash Drive", "short_name": "MFD", "amount": 5 },
+    { "item": "Military Cable", "short_name": "MCable", "amount": 5 },
+    { "item": "Secured Magnetic Tape Cassette", "short_name": "SMT", "amount": 2 },
+    { "item": "Far-Forward GPS Signal Amplifier Unit", "short_name": "GPSA", "amount": 1 }
+  ],
+  "Stash Lvl.1": [
+    { "item": "Hand drill", "short_name": "Hand drill", "amount": 1 },
+    { "item": "Pack of Screws", "short_name": "Screws", "amount": 10 },
+    { "item": "WD-40 (100ml)", "short_name": "WD-40", "amount": 4 },
+    { "item": "Pack of Nails", "short_name": "Nails", "amount": 5 },
+    { "item": "Rubles", "short_name": "Rubles", "amount": 2500000 }
+  ],
+  "Stash Lvl.2": [
+    { "item": "Electric drill", "short_name": "Drill", "amount": 2 },
+    { "item": "Pack of Screws", "short_name": "Screws", "amount": 15 },
+    { "item": "Pack of Nails", "short_name": "Nails", "amount": 7 },
+    { "item": "Rubles", "short_name": "Rubles", "amount": 8500000 }
+  ],
+  "Stash Lvl.3": [
+    { "item": "Bolts", "short_name": "Bolts", "amount": 10 },
+    { "item": "Screw nuts", "short_name": "Nuts", "amount": 10 },
+    { "item": "Shustrilo Sealing Foam", "short_name": "Shus", "amount": 5 },
+    { "item": "Ratchet Wrench", "short_name": "Ratchet", "amount": 2 },
+    { "item": "Rubles", "short_name": "Rubles", "amount": 200000 }
+  ],
+  "Bitcoin Farm Lvl.1": [
+    { "item": "CPU fan", "short_name": "CPU fan", "amount": 15 },
+    { "item": "Power Supply Unit", "short_name": "PSU", "amount": 10 },
+    { "item": "Power Cord", "short_name": "Cord", "amount": 10 },
+    { "item": "VPX Flash Storage Module", "short_name": "VPX", "amount": 1 },
+    { "item": "T-Shaped Plug", "short_name": "T-Plug", "amount": 5 }
+  ],
+  "Bitcoin Farm Lvl.2": [
+    { "item": "CPU fan", "short_name": "CPU fan", "amount": 15 },
+    { "item": "Power Supply Unit", "short_name": "PSU", "amount": 10 },
+    { "item": "Printed Circuit Board", "short_name": "PCB", "amount": 15 },
+    { "item": "Phase Control Relay", "short_name": "Relay", "amount": 5 },
+    { "item": "Military Power Filter", "short_name": "PFilter", "amount": 2 }
+  ],
+  "Bitcoin Farm Lvl.3": [
+    { "item": "CPU Fan", "short_name": "CPU Fan", "amount": 25 },
+    { "item": "Silicon Tube", "short_name": "Tube", "amount": 15 },
+    { "item": "Electric Motor", "short_name": "Motor", "amount": 10 },
+    { "item": "Pressure Gauge", "short_name": "PGauge", "amount": 10 },
+    { "item": "6-STEN-140-M military battery", "short_name": "Tank battery", "amount": 1 }
+  ],
+  "Illumination Lvl.1": [
+    { "item": "Crickent lighter", "short_name": "Crickent", "amount": 1 },
+    { "item": "Rubles", "short_name": "Rubles", "amount": 10000 }
+  ],
+  "Illumination Lvl.2": [
+    { "item": "Light bulb", "short_name": "Bulb", "amount": 14 },
+    { "item": "Bundle of wires", "short_name": "Wires", "amount": 10 }
+  ],
+  "Illumination Lvl.3": [
+    { "item": "Capacitors", "short_name": "Caps", "amount": 7 },
+    { "item": "Bundle of wires", "short_name": "Wires", "amount": 6 },
+    { "item": "Energy-saving lamp", "short_name": "ES Lamp", "amount": 12 },
+    { "item": "Rubles", "short_name": "Rubles", "amount": 50000 }
+  ],
+  "Security Lvl.1": [
+    { "item": "Construction Measuring Tape", "short_name": "MTape", "amount": 1 },
+    { "item": "Rubles", "short_name": "Rubles", "amount": 20000 }
+  ],
+  "Security Lvl.2": [
+    { "item": "Pliers Elite", "short_name": "Elite", "amount": 1 },
+    { "item": "WD-40 (100ml)", "short_name": "WD-40", "amount": 1 },
+    { "item": "TP-200 TNT Brick", "short_name": "TP-200", "amount": 1 },
+    { "item": "Rubles", "short_name": "Rubles", "amount": 45000 }
+  ],
+  "Security Lvl.3": [
+    { "item": "Working LCD", "short_name": "LCD", "amount": 2 },
+    { "item": "Bundle of wires", "short_name": "Wires", "amount": 4 },
+    { "item": "NIXXOR Lens", "short_name": "NIXXOR", "amount": 8 },
+    { "item": "SSD Drive", "short_name": "SSD", "amount": 1 }
+  ],
+  "Scav Case": [
+    { "item": "Bronze Lion Figurine", "short_name": "Lion", "amount": 3 },
+    { "item": "Gold skull ring", "short_name": "Skull", "amount": 6 },
+    { "item": "Golden Neck Chain", "short_name": "GoldChain", "amount": 8 },
+    { "item": "Roler Submariner Gold Wrist Watch", "short_name": "Roler", "amount": 4 },
+    { "item": "Bottle of Fierce Hatchling Moonshine", "short_name": "Moonshine", "amount": 3 },
+    { "item": "Lucky Scav Junk Box", "short_name": "Junk", "amount": 1 },
+    { "item": "Golden Rooster Figurine", "short_name": "Rooster", "amount": 1 }
+  ],
+  "Solar Power": [
+    { "item": "Military Cable", "short_name": "MCable", "amount": 10 },
+    { "item": "Phades Array Element", "short_name": "AESA", "amount": 4 },
+    { "item": "Military Power Filter", "short_name": "PFilter", "amount": 10 },
+    { "item": "Working LCD", "short_name": "LCD", "amount": 3 },
+    { "item": "Far-Forward Current Converter", "short_name": "MCC", "amount": 1 },
+    { "item": "Rubles", "short_name": "Rubles", "amount": 25000 }
+  ],
+  "Generator Lvl.1": [
+    { "item": "Spark Plug", "short_name": "SPlug", "amount": 1 },
+    { "item": "Rubles", "short_name": "Rubles", "amount": 100000 }
+  ],
+  "Generator Lvl.2": [
+    { "item": "Phase Control Relay", "short_name": "Relay", "amount": 5 },
+    { "item": "Electric Motor", "short_name": "Motor", "amount": 1 },
+    { "item": "Bundle of Wires", "short_name": "Wires", "amount": 15 },
+    { "item": "Bulbex cable cutter", "short_name": "Bulbex", "amount": 1 }
+  ],
+  "Generator Lvl.3": [
+    { "item": "Phase Control Relay", "short_name": "Relay", "amount": 6 },
+    { "item": "Electric Motor", "short_name": "Motor", "amount": 3 },
+    { "item": "Spark Plug", "short_name": "SPlug", "amount": 10 },
+    { "item": "Power Supply Unit", "short_name": "PSU", "amount": 5 },
+    { "item": "Metal Spare Parts", "short_name": "M.parts", "amount": 7 }
+  ],
+  "Water Collector Lvl.1": [
+    { "item": "Corrugated Hose", "short_name": "Hose", "amount": 4 },
+    { "item": "Bolts", "short_name": "Bolts", "amount": 5 },
+    { "item": "Screw nuts", "short_name": "Nuts", "amount": 5 },
+    { "item": "Duct tape", "short_name": "Duct tape", "amount": 3 }
+  ],
+  "Water Collector Lvl.2": [
+    { "item": "Corrugated Hose", "short_name": "Hose", "amount": 6 },
+    { "item": "Electric motor", "short_name": "Motor", "amount": 2 },
+    { "item": "Toolset", "short_name": "Toolset", "amount": 2 },
+    { "item": "KEKTAPE Duct Tape", "short_name": "KEK", "amount": 2 }
+  ],
+  "Water Collector Lvl.3": [
+    { "item": "Pliers Elite", "short_name": "Elite", "amount": 2 },
+    { "item": "Shustrilo Sealing Foam", "short_name": "Shus", "amount": 5 },
+    { "item": "Ratchet Wrench", "short_name": "Ratchet", "amount": 1 },
+    { "item": "Rubles", "short_name": "Rubles", "amount": 20000 }
+  ],
+  "Vents Lvl.1": [
+    { "item": "Rubles", "short_name": "Rubles", "amount": 25000 }
+  ],
+  "Vents Lvl.2": [
+    { "item": "Electric Motor", "short_name": "Motor", "amount": 1 },
+    { "item": "Car Battery", "short_name": "Car batt.", "amount": 1 },
+    { "item": "CPU Fan", "short_name": "CPU Fan", "amount": 3 },
+    { "item": "Metal Spare Parts", "short_name": "M.parts", "amount": 2 }
+  ],
+  "Vents Lvl.3": [
+    { "item": "Electric Motor", "short_name": "Motor", "amount": 4 },
+    { "item": "Bundle of wires", "short_name": "Wires", "amount": 14 },
+    { "item": "Printed Circuit Board", "short_name": "PCB", "amount": 5 },
+    { "item": "Car Battery", "short_name": "Car batt.", "amount": 4 },
+    { "item": "Metal Spare Parts", "short_name": "M.parts", "amount": 5 }
+  ],
+  "Nutrition Unit Lvl.1": [
+    { "item": "Phase Control Relayt", "short_name": "Relay", "amount": 2 },
+    { "item": "Power Cord", "short_name": "Cord", "amount": 1 },
+    { "item": "Can of white salt", "short_name": "Salt", "amount": 1 },
+    { "item": "Rubles", "short_name": "Rubles", "amount": 25000 }
+  ],
+  "Nutrition Unit Lvl.2": [
+    { "item": "Wrench", "short_name": "Wrench", "amount": 4 },
+    { "item": "Corrugated Hose", "short_name": "Hose", "amount": 2 },
+    { "item": "Alkaline Cleaner for heat exchangers", "short_name": "Alkali", "amount": 2 },
+    { "item": "Phase Control relay", "short_name": "Relay", "amount": 1 }
+  ],
+  "Nutrition Unit Lvl.3": [
+    { "item": "Can of Majaica Coffee Beans", "short_name": "Majaica", "amount": 3 },
+    { "item": "Pack of Sodium Bicarbonate", "short_name": "Sodium", "amount": 3 },
+    { "item": "Smoked Chimney Drain Cleaner", "short_name": "DCleaner", "amount": 2 },
+    { "item": "Rubles", "short_name": "Rubles", "amount": 125000 }
+  ],
+  "Booze Generator": [
+    { "item": "Silicone Tube", "short_name": "Tube", "amount": 4 },
+    { "item": "Analog Thermometer", "short_name": "Therm.", "amount": 2 },
+    { "item": "Pressure Gauge", "short_name": "PGauge", "amount": 2 },
+    { "item": "Corrugated Hose", "short_name": "Hose", "amount": 5 },
+    { "item": "Pipe Grip Wrench", "short_name": "PGW", "amount": 1 },
+    { "item": "Radiator Helix", "short_name": "Helix", "amount": 3 },
+    { "item": "Metal Spare Parts", "short_name": "M.parts", "amount": 2 }
+  ],
+  "Air Filtering Unit": [
+    { "item": "Military Power filter", "short_name": "PFilter", "amount": 5 },
+    { "item": "Gas Mask Air Filter", "short_name": "Filter", "amount": 5 },
+    { "item": "Military Corrugated Tube", "short_name": "MTube", "amount": 3 },
+    { "item": "Rubles", "short_name": "Rubles", "amount": 25000 }
+  ],
+  "Medstation Lvl.1": [
+    { "item": "Disposable Syringe", "short_name": "Syringe", "amount": 1 },
+    { "item": "Pile of meds", "short_name": "Meds", "amount": 1 },
+    { "item": "Aseptic Bandage", "short_name": "Bandage", "amount": 2 },
+    { "item": "Bottle of OLOLO multivitamins", "short_name": "Vitamins", "amount": 1 },
+    { "item": "Rubles", "short_name": "Rubles", "amount": 50000 }
+  ],
+  "Medstation Lvl.2": [
+    { "item": "Medical Bloodset", "short_name": "Bloodset", "amount": 2 },
+    { "item": "Bottle of Saline Solution", "short_name": "NaCl", "amount": 3 },
+    { "item": "Esmarch tourniquet", "short_name": "Esmarch", "amount": 5 },
+    { "item": "Medical Tools", "short_name": "MedTools", "amount": 3 },
+    { "item": "Rubles", "short_name": "Rubles", "amount": 150000 }
+  ],
+  "Medstation Lvl.3": [
+    { "item": "Bottle of Saline Solution", "short_name": "NaCl", "amount": 4 },
+    { "item": "LEDX Skin Transilluminator", "short_name": "LEDX", "amount": 1 },
+    { "item": "Opthalmoscope", "short_name": "OScope", "amount": 1 },
+    { "item": "Rubles", "short_name": "Rubles", "amount": 500000 }
+  ],
+  "Heating Lvl.1": [
+    { "item": "Classic Matches", "short_name": "Matches", "amount": 2 },
+    { "item": "Rubles", "short_name": "Rubles", "amount": 25000 }
+  ],
+  "Heating Lvl.2": [
+    { "item": "Hunting Matches", "short_name": "HMatches", "amount": 2 },
+    { "item": "Dry Fuel", "short_name": "DFuel", "amount": 3 },
+    { "item": "Crickent Lighter", "short_name": "Crickent", "amount": 3 },
+    { "item": "Rubles", "short_name": "Rubles", "amount": 50000 }
+  ],
+  "Heating Lvl.3": [
+    { "item": "Radiator Helix", "short_name": "Helix", "amount": 8 },
+    { "item": "Bundle of Wires", "short_name": "Wires", "amount": 8 },
+    { "item": "Phase Control Relay", "short_name": "Relay", "amount": 4 },
+    { "item": "Military Corrugated Tube", "short_name": "MTube", "amount": 2 }
+  ],
+  "Rest Space Lvl.1": [
+    { "item": "Duct Tape", "short_name": "Duct Tape", "amount": 1 },
+    { "item": "Classic Matches", "short_name": "Matches", "amount": 1 },
+    { "item": "Rubles", "short_name": "Rubles", "amount": 10000 }
+  ],
+  "Rest Space Lvl.2": [
+    { "item": "DVD Drive", "short_name": "DVD", "amount": 1 },
+    { "item": "Magnet", "short_name": "Magnet", "amount": 1 },
+    { "item": "Energy-Saving Lamp", "short_name": "ES Lamp", "amount": 3 },
+    { "item": "Rubles", "short_name": "Rubles", "amount": 35000 }
+  ],
+  "Rest Space Lvl.3": [
+    { "item": "Power Cord", "short_name": "Cord", "amount": 4 },
+    { "item": "Capacitors", "short_name": "Caps", "amount": 5 },
+    { "item": "Bundle of Wires", "short_name": "Wires", "amount": 7 },
+    { "item": "Greenbat Lithium Battery", "short_name": "GreenBat", "amount": 5 }
+  ],
+  "Library": [
+    { "item": "Horse Figurine", "short_name": "Horse", "amount": 1 },
+    { "item": "Chainlet", "short_name": "Chainlet", "amount": 2 },
+    { "item": "Tech Manual", "short_name": "Manual", "amount": 5 },
+    { "item": "Diary", "short_name": "Diary", "amount": 2 },
+    { "item": "Slim diary", "short_name": "SDiary", "amount": 2 },
+    { "item": "BakeEzy cook book", "short_name": "BakeEzy", "amount": 1 },
+    { "item": "Rubles", "short_name": "Rubles", "amount": 400000 }
+  ]
+}

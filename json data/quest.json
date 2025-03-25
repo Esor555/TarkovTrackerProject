@@ -1,0 +1,1534 @@
+{
+    "Prapor": [
+      {
+        "quest": "Debut",
+        "item": "MP-133 12ga shotgun",
+        "item_short_name": "MP-133",
+        "amount": 2,
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Ice Cream Cones",
+        "item": "AK-74 5.45x39 6L31 60-round magazine",
+        "item_short_name": "6L31",
+        "amount": 3,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Ice Cream Cones",
+        "item": "ZB-014 key",
+        "item_short_name": "ZB-014",
+        "amount": 1,
+        "acquired_in_raid": "no",
+        "mandatory": "no"
+      },
+      {
+        "quest": "The Punisher - Part 1",
+        "item": "Kalashnikov AKM 7.62x39 assault rifle",
+        "item_short_name": "AKM",
+        "amount": "?",
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "The Punisher - Part 2",
+        "item": "Lower half-mask",
+        "item_short_name": "Mask",
+        "amount": 7,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "The Punisher - Part 4",
+        "item": "Bars A-2607 95Kh18 knife",
+        "item_short_name": "A-2607",
+        "amount": 5,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "The Punisher - Part 4",
+        "item": "Balaclava",
+        "item_short_name": "Balaclava",
+        "amount": "?",
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "The Punisher - Part 4",
+        "item": "Scav Vest",
+        "item_short_name": "Scav Vest",
+        "amount": "?",
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "The Punisher - Part 5",
+        "item": "Kalashnikov AK-74N 5.45x39 assault rifle",
+        "item_short_name": "AK-74N",
+        "amount": 1,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "The Punisher - Part 5",
+        "item": "Colt M4A1 5.56x45 assault rifle",
+        "item_short_name": "M4A1",
+        "amount": 1,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "The Punisher - Part 5",
+        "item": "Makarov PM 9x18PM pistol",
+        "item_short_name": "PM",
+        "amount": 2,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "The Punisher - Part 5",
+        "item": "PACA Soft Armor",
+        "item_short_name": "PACA",
+        "amount": "?",
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "The Punisher - Part 5",
+        "item": "6B47 Ratnik-BSh helmet",
+        "item_short_name": "6B47",
+        "amount": "?",
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "The Punisher - Part 6",
+        "item": "USEC Dogtag",
+        "item_short_name": "USEC",
+        "amount": 7,
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "The Punisher - Part 6",
+        "item": "BEAR Dogtag",
+        "item_short_name": "BEAR",
+        "amount": 7,
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "The Punisher - Part 6",
+        "item": "SVDS 7.62x54R sniper rifle",
+        "item_short_name": "SVD",
+        "amount": "?",
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Checking",
+        "item": "Machinery Key",
+        "item_short_name": "Machinery",
+        "amount": 1,
+        "acquired_in_raid": "no",
+        "mandatory": "no"
+      },
+      {
+        "quest": "Bad Rep Evidence",
+        "item": "Factory Emergency Exit Key",
+        "item_short_name": "Factory",
+        "amount": 1,
+        "acquired_in_raid": "no",
+        "mandatory": "no"
+      },
+      {
+        "quest": "Bad Rep Evidence",
+        "item": "Portable Bunkhosue Key",
+        "item_short_name": "Bunkhouse",
+        "amount": 1,
+        "acquired_in_raid": "no",
+        "mandatory": "no"
+      },
+      {
+        "quest": "Shaking Up The Teller",
+        "item": "Dorm room 214 key",
+        "item_short_name": "Dorm 214",
+        "amount": 1,
+        "acquired_in_raid": "no",
+        "mandatory": "no"
+      },
+      {
+        "quest": "Test Drive - Part 1",
+        "item": "Springfield Armory M1A 7.62x51 rifle",
+        "item_short_name": "M1A",
+        "amount": "?",
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Test Drive - Part 1",
+        "item": "SilencerCo Hybrid 46 multi-caliber sound suppressor",
+        "item_short_name": "Hybrid 46",
+        "amount": "?",
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Test Drive - Part 1",
+        "item": "Schmidt & Bender PM II 1-8x24 30mm riflescope",
+        "item_short_name": "PM II 1-8x24",
+        "amount": "?",
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Test Drive - Part 2",
+        "item": "SR-2M \"Veresk\" 9x21 submachine gun",
+        "item_short_name": "SR-2M FSB",
+        "amount": "?",
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Test Drive - Part 2",
+        "item": "SR-2M 9x21 sound suppressor (SV-1381)",
+        "item_short_name": "SV-1381",
+        "amount": "?",
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Test Drive - Part 2",
+        "item": "SR-2M KP-SR2 reflex sight",
+        "item_short_name": "KP-SR2",
+        "amount": "?",
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Test Drive - Part 3",
+        "item": "Kalashnikov AK-12 5.45x39 assault rifle",
+        "item_short_name": "AK-12",
+        "amount": "?",
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Test Drive - Part 3",
+        "item": "AK-12 5.45x39 sound suppressor",
+        "item_short_name": "AK-12",
+        "amount": "?",
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Test Drive - Part 3",
+        "item": "Valday PS-320 1/6x scope",
+        "item_short_name": "PS-320",
+        "amount": "?",
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Regulated Materials",
+        "item": "6-STEN-140-M military battery",
+        "item_short_name": "Tank Battery",
+        "amount": 1,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Regulated Materials",
+        "item": "OFZ 30x160mm shell",
+        "item_short_name": "OFZ",
+        "amount": 5,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "No Offence",
+        "item": "M67 hand grenade",
+        "item_short_name": "M67",
+        "amount": 10,
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Our Own Land",
+        "item": "USEC Dogtag",
+        "item_short_name": "USEC",
+        "amount": 20,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Best Job In the World",
+        "item": "Kalashnikov AK-74 5.45x39 assault rifle",
+        "item_short_name": "AK-74",
+        "amount": "?",
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      }
+    ]
+  ,
+    "Therapist": [
+      {
+        "quest": "Shortage",
+        "item": "Salewa first aid kit",
+        "item_short_name": "Salewa",
+        "amount": 3,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Sanitary Standards - Part 1",
+        "item": "Gas Analyzer",
+        "item_short_name": "GasAn",
+        "amount": 1,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Sanitary Standards - Part 1",
+        "item": "Pumping Station Back Door Key",
+        "item_short_name": "Pump Bac",
+        "amount": 1,
+        "acquired_in_raid": "no",
+        "mandatory": "no"
+      },
+      {
+        "quest": "Sanitary Standards - Part 2",
+        "item": "Gas Analyzer",
+        "item_short_name": "GasAn",
+        "amount": 2,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Painkiller",
+        "item": "Morphine Injector",
+        "item_short_name": "Morphine",
+        "amount": 4,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Pharmacist",
+        "item": "Dorm room 114 key",
+        "item_short_name": "Dorm 114",
+        "amount": 1,
+        "acquired_in_raid": "no",
+        "mandatory": "no"
+      },
+      {
+        "quest": "Car Repair",
+        "item": "Car Battery",
+        "item_short_name": "Car Battery",
+        "amount": 4,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Car Repair",
+        "item": "Spark Plug",
+        "item_short_name": "SPlug",
+        "amount": 8,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Health Care Privacy - Part 2",
+        "item": "Health Resort west wing room 306 key",
+        "item_short_name": "w306 san",
+        "amount": 1,
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Private Clinic",
+        "item": "Ophthalmoscope",
+        "item_short_name": "OScope",
+        "amount": 1,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Private Clinic",
+        "item": "LEDX Skin Transilluminator",
+        "item_short_name": "LEDX",
+        "amount": 1,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Health Care Privacy - Part 5",
+        "item": "Gunpowder \"Kite\"",
+        "item_short_name": "Kite",
+        "amount": 3,
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Decontamination Service",
+        "item": "Respirator",
+        "item_short_name": "Respirator",
+        "amount": "?",
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Decontamination Service",
+        "item": "GP-5 Gas Mask",
+        "item_short_name": "GP-5",
+        "amount": "?",
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Decontamination Service",
+        "item": "GP-7 Gas Mask",
+        "item_short_name": "GP-7",
+        "amount": "?",
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "General Wares",
+        "item": "Small can of beef stew",
+        "item_short_name": "Tushonka",
+        "amount": 15,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Colleagues - Part 3",
+        "item": "TerraGroup Labs access keycard",
+        "item_short_name": "Access",
+        "amount": 10,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Colleagues - Part 3",
+        "item": "AHF1-M stimulant injector",
+        "item_short_name": "AHF1-M",
+        "amount": 1,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Colleagues - Part 3",
+        "item": "3-(b-TG) stimulant injector",
+        "item_short_name": "3-(b-TG)",
+        "amount": 1,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Trust Regain",
+        "item": "Dorm room 303 key",
+        "item_short_name": "Dorm 303",
+        "amount": 1,
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Trust Regain",
+        "item": "ZB-014 key",
+        "item_short_name": "ZB-014",
+        "amount": 1,
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Trust Regain",
+        "item": "Military checkpoint key",
+        "item_short_name": "Checkpoint",
+        "amount": 1,
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Trust Regain",
+        "item": "Gas station storage room key",
+        "item_short_name": "Gas store",
+        "amount": 1,
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Crisis",
+        "item": "Portable defibrillator",
+        "item_short_name": "Defibrillator",
+        "amount": 3,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Crisis",
+        "item": "Ophthalmoscope",
+        "item_short_name": "OScope",
+        "amount": 3,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Crisis",
+        "item": "LEDX Skin Transilluminator",
+        "item_short_name": "LEDX",
+        "amount": 2,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Crisis",
+        "item": "Pile of meds",
+        "item_short_name": "Meds",
+        "amount": 20,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Crisis",
+        "item": "Bottle of OLOLO multivitamins",
+        "item_short_name": "Vitamins",
+        "amount": 10,
+        "acquired_in_raid": "yes",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Drug Trafficking",
+        "item": "Wi-Fi Camera",
+        "item_short_name": "Camera",
+        "amount": 1,
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      },
+      {
+        "quest": "Pets Won't Need It",
+        "item": "X-ray room key",
+        "item_short_name": "X-Ray",
+        "amount": 1,
+        "acquired_in_raid": "no",
+        "mandatory": "yes"
+      }
+    ],
+        "Skier": [
+          {
+            "quest": "Supplier",
+            "item": "BNTI Module-3M body armor",
+            "item_short_name": "Module-3M",
+            "amount": 1,
+            "acquired_in_raid": "yes",
+            "mandatory": "yes"
+          },
+          {
+            "quest": "Supplier",
+            "item": "TOZ-106 20ga bolt-action shotgun",
+            "item_short_name": "TOZ-106",
+            "amount": 1,
+            "acquired_in_raid": "yes",
+            "mandatory": "yes"
+          },
+          {
+            "quest": "What’s on the Flash Drive?",
+            "item": "Secure Flash Drive",
+            "item_short_name": "Flash Drive",
+            "amount": 2,
+            "acquired_in_raid": "yes",
+            "mandatory": "yes"
+          },
+          {
+            "quest": "Chemical - Part 1",
+            "item": "Dorm Room 220 key",
+            "item_short_name": "Dorm 220",
+            "amount": 1,
+            "acquired_in_raid": "no",
+            "mandatory": "yes"
+          },
+          {
+            "quest": "Vitamins - Part 2",
+            "item": "Respirator",
+            "item_short_name": "Respirator",
+            "amount": 4,
+            "acquired_in_raid": "yes",
+            "mandatory": "yes"
+          },
+          {
+            "quest": "Vitamins - Part 2",
+            "item": "Medical Bloodset",
+            "item_short_name": "Bloodset",
+            "amount": 3,
+            "acquired_in_raid": "yes",
+            "mandatory": "yes"
+          },
+          {
+            "quest": "Friend from the West - Part 1",
+            "item": "USEC Dogtag",
+            "item_short_name": "USEC",
+            "amount": 7,
+            "acquired_in_raid": "no",
+            "mandatory": "yes"
+          },
+          {
+            "quest": "Informed Means Armed",
+            "item": "Wi-Fi Camera",
+            "item_short_name": "Camera",
+            "amount": 1,
+            "acquired_in_raid": "no",
+            "mandatory": "yes"
+          },
+          {
+            "quest": "Chumming",
+            "item": "Golden Neck Chain",
+            "item_short_name": "GoldChain",
+            "amount": 9,
+            "acquired_in_raid": "no",
+            "mandatory": "yes"
+          },
+          {
+            "quest": "Bullshit",
+            "item": "SV-98 7.62x54R bolt-action sniper rifle",
+            "item_short_name": "SV-98",
+            "amount": 1,
+            "acquired_in_raid": "no",
+            "mandatory": "yes"
+          },
+          {
+            "quest": "Bullshit",
+            "item": "Roler Submariner gold wrist watch",
+            "item_short_name": "Roler",
+            "amount": 1,
+            "acquired_in_raid": "no",
+            "mandatory": "yes"
+          },
+          {
+            "quest": "Setup",
+            "item": "Ushanka ear flap hat",
+            "item_short_name": "Ushanka",
+            "amount": "?",
+            "acquired_in_raid": "no",
+            "mandatory": "yes"
+          },
+          {
+            "quest": "Setup",
+            "item": "Scav Vest",
+            "item_short_name": "Scav Vest",
+            "amount": "?",
+            "acquired_in_raid": "no",
+            "mandatory": "yes"
+          },
+          {
+            "quest": "Setup",
+            "item": "MP-133 12ga shotgun",
+            "item_short_name": "MP-133",
+            "amount": "?",
+            "acquired_in_raid": "no",
+            "mandatory": "no"
+          },
+          {
+            "quest": "Setup",
+            "item": "MP-155 12ga semi-automatic shotgun",
+            "item_short_name": "MP-155",
+            "amount": "?",
+            "acquired_in_raid": "no",
+            "mandatory": "no"
+          },
+          {
+            "quest": "Setup",
+            "item": "MP-153 12ga semi-automatic",
+            "item_short_name": "MP-153",
+            "amount": "?",
+            "acquired_in_raid": "no",
+            "mandatory": "no"
+          },
+          {
+            "quest": "Setup",
+            "item": "MP-43-1C 12ga double-barrel shotgun",
+            "item_short_name": "MP-43-1C",
+            "amount": "?",
+            "acquired_in_raid": "no",
+            "mandatory": "no"
+          },
+          {
+            "quest": "Night Sweep",
+            "item": "Cultist knife",
+            "item_short_name": "Knife",
+            "amount": 12,
+            "acquired_in_raid": "yes",
+            "mandatory": "yes"
+          },
+          {
+            "quest": "House Arrest - Part 2",
+            "item": "Chekannaya 15 apartment key",
+            "item_short_name": "Chek 15",
+            "amount": 1,
+            "acquired_in_raid": "no",
+            "mandatory": "yes"
+          },
+          {
+            "quest": "Top Secret",
+            "item": "Radar station commandant room key",
+            "item_short_name": "Radar",
+            "amount": 1,
+            "acquired_in_raid": "no",
+            "mandatory": "yes"
+          }
+        ],
+            "Peacekeeper": [
+              {
+                "quest": "Fishing Gear",
+                "item": "Leatherman Multitool",
+                "item_short_name": "Multitool",
+                "amount": 1,
+                "acquired_in_raid": "no",
+                "mandatory": "yes"
+              },
+              {
+                "quest": "Humanitarian Supplies",
+                "item": "MRE Ration Pack",
+                "item_short_name": "MRE",
+                "amount": 5,
+                "acquired_in_raid": "no",
+                "mandatory": "yes"
+              },
+              {
+                "quest": "Humanitarian Supplies",
+                "item": "MF-UNTAR body armor",
+                "item_short_name": "MF-UN",
+                "amount": "?",
+                "acquired_in_raid": "no",
+                "mandatory": "yes"
+              },
+              {
+                "quest": "Humanitarian Supplies",
+                "item": "UNTAR helmet",
+                "item_short_name": "UNTAR",
+                "amount": "?",
+                "acquired_in_raid": "no",
+                "mandatory": "yes"
+              },
+              {
+                "quest": "Spa Tour - Part 3",
+                "item": "WD-40 (100ml)",
+                "item_short_name": "WD-40",
+                "amount": 1,
+                "acquired_in_raid": "yes",
+                "mandatory": "yes"
+              },
+              {
+                "quest": "Spa Tour - Part 3",
+                "item": "Clin window cleaner",
+                "item_short_name": "Clin",
+                "amount": 2,
+                "acquired_in_raid": "yes",
+                "mandatory": "yes"
+              },
+              {
+                "quest": "Spa Tour - Part 3",
+                "item": "Corrugated Hose",
+                "item_short_name": "Hose",
+                "amount": 2,
+                "acquired_in_raid": "yes",
+                "mandatory": "yes"
+              },
+              {
+                "quest": "Spa Tour - Part 3",
+                "item": "Ox Bleach",
+                "item_short_name": "Bleach",
+                "amount": 2,
+                "acquired_in_raid": "yes",
+                "mandatory": "yes"
+              },
+              {
+                "quest": "Spa Tour - Part 5",
+                "item": "Key to the closed premises of the Health Resort",
+                "item_short_name": "Health Res",
+                "amount": 1,
+                "acquired_in_raid": "no",
+                "mandatory": "yes"
+              },
+              {
+                "quest": "Spa Tour - Part 7",
+                "item": "Morphine Injector",
+                "item_short_name": "Morphine",
+                "amount": 4,
+                "acquired_in_raid": "yes",
+                "mandatory": "yes"
+              },
+              {
+                "quest": "Spa Tour - Part 7",
+                "item": "Alkaline Cleaner for heat exchangers",
+                "item_short_name": "Alkali",
+                "amount": 2,
+                "acquired_in_raid": "yes",
+                "mandatory": "yes"
+              },
+              {
+                "quest": "Spa Tour - Part 7",
+                "item": "Corrugated hose",
+                "item_short_name": "Hose",
+                "amount": 2,
+                "acquired_in_raid": "yes",
+                "mandatory": "yes"
+              },
+              {
+                "quest": "Spa Tour - Part 7",
+                "item": "Propane tank (5L)",
+                "item_short_name": "Propane",
+                "amount": 2,
+                "acquired_in_raid": "yes",
+                "mandatory": "yes"
+              },
+              {
+                "quest": "Cargo X - Part 1",
+                "item": "Health Resort east wing room 306 key",
+                "item_short_name": "E306 San",
+                "amount": 1,
+                "acquired_in_raid": "no",
+                "mandatory": "yes"
+              },
+              {
+                "quest": "Cargo X - Part 1",
+                "item": "Health Resort east wing room 308 key",
+                "item_short_name": "E308 San",
+                "amount": 1,
+                "acquired_in_raid": "no",
+                "mandatory": "yes"
+              },
+              {
+                "quest": "Wet Job - Part 1",
+                "item": "Colt M4A1 5.56x45 assault rifle",
+                "item_short_name": "M4A1",
+                "amount": "?",
+                "acquired_in_raid": "no",
+                "mandatory": "no"
+              },
+              {
+                "quest": "Wet Job - Part 1",
+                "item": "ADAR 2-15 5.56x45 carbine",
+                "item_short_name": "ADAR",
+                "amount": "?",
+                "acquired_in_raid": "no",
+                "mandatory": "no"
+              },
+              {
+                "quest": "Wet Job - Part 1",
+                "item": "Lone Star TX-15 DML 5.56x45 carbine",
+                "item_short_name": "TX-15",
+                "amount": "?",
+                "acquired_in_raid": "no",
+                "mandatory": "no"
+              },
+              {
+                "quest": "Samples",
+                "item": "M.U.L.E. stimulant injector",
+                "item_short_name": "M.U.L.E",
+                "amount": 1,
+                "acquired_in_raid": "yes",
+                "mandatory": "yes"
+              },
+              {
+                "quest": "Samples",
+                "item": "\"Obdolbos\" cocktail injector",
+                "item_short_name": "Obdolbos",
+                "amount": 1,
+                "acquired_in_raid": "yes",
+                "mandatory": "yes"
+              },
+              {
+                "quest": "Samples",
+                "item": "Meldonin injector",
+                "item_short_name": "Meldonin",
+                "amount": 1,
+                "acquired_in_raid": "yes",
+                "mandatory": "yes"
+              },
+              {
+                "quest": "Counteraction",
+                "item": "BEAR Dogtag",
+                "item_short_name": "BEAR",
+                "amount": 20,
+                "acquired_in_raid": "yes",
+                "mandatory": "yes"
+              },
+              {
+                "quest": "Trophies",
+                "item": "BEAR Dogtag LVL 50+",
+                "item_short_name": "BEAR",
+                "amount": 20,
+                "acquired_in_raid": "yes",
+                "mandatory": "yes"
+              },
+              {
+                "quest": "Trophies",
+                "item": "USEC Dogtag LVL 50+",
+                "item_short_name": "USEC",
+                "amount": 20,
+                "acquired_in_raid": "yes",
+                "mandatory": "yes"
+              }
+            ]
+            ,
+              "Mechanic": [
+                {
+                  "quest": "Gunsmith - Part 1",
+                  "item": "MP-133 12ga pump-action shotgun",
+                  "item_short_name": "MP-133",
+                  "amount": 1,
+                  "acquired_in_raid": "no",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Gunsmith - Part 2",
+                  "item": "Kalashnikov AKS-74U 5.45x39 assault rifle",
+                  "item_short_name": "AKS-74U",
+                  "amount": 1,
+                  "acquired_in_raid": "no",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Gunsmith - Part 3",
+                  "item": "HK MP5 9x19 submachine gun (Navy 3 Round Burst)",
+                  "item_short_name": "MP5",
+                  "amount": 1,
+                  "acquired_in_raid": "no",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Signal - Part 2",
+                  "item": "PC CPU",
+                  "item_short_name": "CPU",
+                  "amount": 3,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Signal - Part 2",
+                  "item": "Rechargeable battery",
+                  "item_short_name": "RBattery",
+                  "amount": 3,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Bad Habit",
+                  "item": "Malboro Cigarettes",
+                  "item_short_name": "Malboro",
+                  "amount": 5,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Bad Habit",
+                  "item": "Strike Cigarettes",
+                  "item_short_name": "Strike",
+                  "amount": 5,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Farming - Part 4",
+                  "item": "Graphics Card",
+                  "item_short_name": "GPU",
+                  "amount": 3,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Farming - Part 4",
+                  "item": "CPU Fan",
+                  "item_short_name": "CPU Fan",
+                  "amount": 15,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Fertilizers",
+                  "item": "Bundle of Wires",
+                  "item_short_name": "Wires",
+                  "amount": 5,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "The Courier",
+                  "item": "Trijicon REAP-IR thermal scope",
+                  "item_short_name": "REAP-IR",
+                  "amount": 2,
+                  "acquired_in_raid": "no",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Assessment - Part 3",
+                  "item": "SJ1 TGLabs combat stimulant injector",
+                  "item_short_name": "SJ1",
+                  "amount": 20,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Assessment - Part 3",
+                  "item": "SJ6 TGLabs combat stimulant injector",
+                  "item_short_name": "SJ6",
+                  "amount": 8,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Key to the Tower",
+                  "item": "Piece of plexiglass",
+                  "item_short_name": "Plexiglass",
+                  "amount": 2,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Key to the Tower",
+                  "item": "Military circuit board",
+                  "item_short_name": "MCB",
+                  "amount": 2,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Make Amends - Equipment",
+                  "item": "SVDS 7.62x54R sniper rifle",
+                  "item_short_name": "SVDS",
+                  "amount": 4,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "The Door",
+                  "item": "WI-FI Camera",
+                  "item_short_name": "Camera",
+                  "amount": 2,
+                  "acquired_in_raid": "no",
+                  "mandatory": "yes"
+                }
+              ]
+            ,
+              "Ragman": [
+                {
+                  "quest": "Dressed to Kill",
+                  "item": "Kinda cowboy hat",
+                  "item_short_name": "Cowboy",
+                  "amount": 2,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Dressed to Kill",
+                  "item": "Ushanka ear flap hat",
+                  "item_short_name": "Ushanka",
+                  "amount": 2,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Gratitude",
+                  "item": "Ghost balaclava",
+                  "item_short_name": "Ghost",
+                  "amount": 1,
+                  "acquired_in_raid": "no",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Gratitude",
+                  "item": "Shemagh",
+                  "item_short_name": "Shemagh",
+                  "amount": 1,
+                  "acquired_in_raid": "no",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Hot Delivery",
+                  "item": "Peltor ComTac 2 headset",
+                  "item_short_name": "ComTac2",
+                  "amount": 2,
+                  "acquired_in_raid": "no",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Hot Delivery",
+                  "item": "6B47 Ratnik-BSh helmet",
+                  "item_short_name": "6B47",
+                  "amount": 2,
+                  "acquired_in_raid": "no",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Sew it Good - Part 1",
+                  "item": "Ski hat with holes for eyes",
+                  "item_short_name": "Shmaska",
+                  "amount": 1,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Sew it Good - Part 1",
+                  "item": "Pilgrim tourist backpack",
+                  "item_short_name": "Pilgrim",
+                  "amount": 1,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "The Blood of War - Part 2",
+                  "item": "Fuel conditioner",
+                  "item_short_name": "FCond",
+                  "amount": 4,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Living High is Not a Crime - Part 1",
+                  "item": "Bronze lion figurine",
+                  "item_short_name": "Lion",
+                  "amount": 2,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Living High is Not a Crime - Part 1",
+                  "item": "Horse figurine",
+                  "item_short_name": "Horse",
+                  "amount": 2,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Living High is Not a Crime - Part 1",
+                  "item": "Cat figurine",
+                  "item_short_name": "Cat",
+                  "amount": 1,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Living High is Not a Crime - Part 2",
+                  "item": "Antique teapot",
+                  "item_short_name": "Teapot",
+                  "amount": 3,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Living High is Not a Crime - Part 2",
+                  "item": "Antique vase",
+                  "item_short_name": "Vase",
+                  "amount": 2,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Textile - Part 1",
+                  "item": "Aramid fiber fabric",
+                  "item_short_name": "Aramid",
+                  "amount": 5,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Textile - Part 1",
+                  "item": "Ripstop fabric",
+                  "item_short_name": "Ripstop",
+                  "amount": 10,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Booze",
+                  "item": "Bottle of Tarkovskaya vodka",
+                  "item_short_name": "Vodka",
+                  "amount": 10,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Booze",
+                  "item": "Bottle of Dan Jackiel whiskey",
+                  "item_short_name": "Whiskey",
+                  "amount": 10,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                }
+              ]
+            ,
+              "Jaeger": [
+                {
+                  "quest": "Acquaintance",
+                  "item": "Iskra ration pack",
+                  "item_short_name": "Iskra",
+                  "amount": 3,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Acquaintance",
+                  "item": "Emelya rye croutons",
+                  "item_short_name": "Emelya",
+                  "amount": 2,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Acquaintance",
+                  "item": "Can of beef stew (Large)",
+                  "item_short_name": "Tushonka",
+                  "amount": 2,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "The Survivalist Path - Thrifty",
+                  "item": "Iskra ration pack",
+                  "item_short_name": "Iskra",
+                  "amount": 2,
+                  "acquired_in_raid": "no",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "The Survivalist Path - Thrifty",
+                  "item": "Bottle of Water",
+                  "item_short_name": "Water",
+                  "amount": 2,
+                  "acquired_in_raid": "no",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Ambulance",
+                  "item": "Portable defibrillator",
+                  "item_short_name": "Defibrillator",
+                  "amount": 1,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Ambulance",
+                  "item": "CMS surgical kit",
+                  "item_short_name": "CMS",
+                  "amount": 2,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Fishing Place",
+                  "item": "TerraGroup Labs access keycard",
+                  "item_short_name": "Access",
+                  "amount": 2,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "The Huntsman Path - Trophy",
+                  "item": "TT-33 7.62x25 TT pistol (Golden)",
+                  "item_short_name": "TT Gold",
+                  "amount": 1,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "The Huntsman Path - Sellout",
+                  "item": "Maska-1SCh bulletproof helmet (Killa)",
+                  "item_short_name": "Maska-1SCh...",
+                  "amount": 1,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "The Huntsman Path - Woods Keeper",
+                  "item": "Shturman's stash key",
+                  "item_short_name": "SSK",
+                  "amount": 1,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Hunting Trip",
+                  "item": "Remington Model 700 7.62x51 bolt-action sniper rifle",
+                  "item_short_name": "M700",
+                  "amount": "?",
+                  "acquired_in_raid": "no",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Hunting Trip",
+                  "item": "Burris FullField TAC30 1-4x24 30mm riflescope",
+                  "item_short_name": "TAC30",
+                  "amount": "?",
+                  "acquired_in_raid": "no",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "The Huntsman Path - Factory Chief",
+                  "item": "BOSS cap",
+                  "item_short_name": "Cap",
+                  "amount": 1,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Shady Business",
+                  "item": "Secure Flash Drive",
+                  "item_short_name": "Flash Drive",
+                  "amount": 3,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "The Delicious Sausage",
+                  "item": "Salty Dog beef sausage",
+                  "item_short_name": "Sausage",
+                  "amount": 1,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Broadcast - Part 5",
+                  "item": "Mysterious room marked key",
+                  "item_short_name": "Chek. 13",
+                  "amount": 1,
+                  "acquired_in_raid": "no",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Broadcast - Part 5",
+                  "item": "Cultist Knife",
+                  "item_short_name": "Knife",
+                  "amount": 1,
+                  "acquired_in_raid": "no",
+                  "mandatory": "yes"
+                }
+              ]
+            ,
+              "Fence": [
+                {
+                  "quest": "Kappa container",
+                  "item": "Old firesteel",
+                  "item_short_name": "Firesteel",
+                  "amount": 1,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Kappa container",
+                  "item": "Antique axe",
+                  "item_short_name": "Axe",
+                  "amount": 1,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Kappa container",
+                  "item": "Battered antique book",
+                  "item_short_name": "Book",
+                  "amount": 1,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Kappa container",
+                  "item": "#FireKlean gun lube",
+                  "item_short_name": "#FireKlean",
+                  "amount": 1,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Kappa container",
+                  "item": "Golden rooster figurine",
+                  "item_short_name": "Rooster",
+                  "amount": 1,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Kappa container",
+                  "item": "Silver Badge",
+                  "item_short_name": "Badge",
+                  "amount": 1,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Kappa container",
+                  "item": "Deadlyslob's beard oil",
+                  "item_short_name": "BeardOil",
+                  "amount": 1,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Kappa container",
+                  "item": "Golden 1GPhone smartphone",
+                  "item_short_name": "1GPhone",
+                  "amount": 1,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Kappa container",
+                  "item": "Jar of DevilDog mayo",
+                  "item_short_name": "Mayo",
+                  "amount": 1,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Kappa container",
+                  "item": "Can of sprats",
+                  "item_short_name": "Sprats",
+                  "amount": 1,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Kappa container",
+                  "item": "Fake mustache",
+                  "item_short_name": "Mustache",
+                  "amount": 1,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "The Choice",
+                  "item": "Secure container Epsilon",
+                  "item_short_name": "Epsilon",
+                  "amount": 1,
+                  "acquired_in_raid": "no",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Compensation for Damage - Trust",
+                  "item": "BEAR Dogtag",
+                  "item_short_name": "BEAR",
+                  "amount": 5,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Compensation for Damage - Trust",
+                  "item": "USEC Dogtag",
+                  "item_short_name": "USEC",
+                  "amount": 5,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Compensation for Damage - Barkeep",
+                  "item": "Bottle of Dan Jackiel whiskey",
+                  "item_short_name": "Whiskey",
+                  "amount": 1,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Compensation for Damage - Barkeep",
+                  "item": "Can of TarCola soda",
+                  "item_short_name": "TarCola",
+                  "amount": 3,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Compensation for Damage - Collection",
+                  "item": "Colt M4A1 5.56x45 assault rifle",
+                  "item_short_name": "M4A1",
+                  "amount": 2,
+                  "acquired_in_raid": "yes",
+                  "mandatory": "yes"
+                }
+              ] ,
+              "Lightkeeper": [
+                {
+                  "quest": "Missing Informant",
+                  "item": "Backup hideout key",
+                  "item_short_name": "Hideout",
+                  "amount": 1,
+                  "acquired_in_raid": "no",
+                  "mandatory": "no"
+                },
+                {
+                  "quest": "Provocation",
+                  "item": "ASh-12 12.7x55 assault rifle",
+                  "item_short_name": "ASh-12",
+                  "amount": "?",
+                  "acquired_in_raid": "no",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Provocation",
+                  "item": "Salty Dog beef sausage",
+                  "item_short_name": "Sausage",
+                  "amount": 1,
+                  "acquired_in_raid": "no",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Provocation",
+                  "item": "Bottle of Fierce Hatchling moonshine",
+                  "item_short_name": "Moonshine",
+                  "amount": 1,
+                  "acquired_in_raid": "no",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Provocation",
+                  "item": "Toilet paper",
+                  "item_short_name": "TP",
+                  "amount": 1,
+                  "acquired_in_raid": "no",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Following the Bread Crumbs",
+                  "item": "TerraGroup Labs weapon testing area key",
+                  "item_short_name": "TGL WT",
+                  "amount": 1,
+                  "acquired_in_raid": "no",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Following the Bread Crumbs",
+                  "item": "TerraGroup Labs keycard (Black)",
+                  "item_short_name": "Black",
+                  "amount": 1,
+                  "acquired_in_raid": "no",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Spotter",
+                  "item": "AI .338 LM Tactical Sound Moderator",
+                  "item_short_name": "TSM .338LM",
+                  "amount": 1,
+                  "acquired_in_raid": "no",
+                  "mandatory": "yes"
+                },
+                {
+                  "quest": "Spotter",
+                  "item": "Trijicon REAP-IR thermal scope",
+                  "item_short_name": "REAP-IR",
+                  "amount": 1,
+                  "acquired_in_raid": "no",
+                  "mandatory": "yes"
+                }
+              ]
+            }
+            
+            
+            
+            
+            
+            
+          
+          
+      
+      
+  
+
+  
