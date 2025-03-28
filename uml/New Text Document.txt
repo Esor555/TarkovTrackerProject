@@ -1,0 +1,103 @@
+classDiagram
+    class User {
+        - name: string
+        - id: int
+        - level: int
+        - faction: Faction
+        - currentTasks: list<Task>
+        - currentHideout: list<Hideout>
+        - currentItems: list<Item>
+        + CompleteTask(): void
+        + UncompleteTask(): void
+        + CompleteHideout(): void
+        + UncompleteHideout(): void
+        + AddItem(): void
+        + RemoveItem(): void
+    }
+
+    class UserController {
+        - userList: list<User>
+        + AddUser(): void
+        + RemoveUser(): void
+        + EditUser(): void
+        + GetUser(): void
+    }
+
+    class HideoutController {
+        - hideoutList: list<Hideout>
+        + AddHideout(): void
+        + RemoveHideout(): void
+        + EditHideout(): void
+        + GetHideout(): Hideout
+    }
+
+    class Hideout {
+        - name: string
+        - id: int
+        - level: int
+        - levelupRequirement: RequirementHideout
+    }
+
+    class RequirementHideout {
+        - level: int?
+        - skills: list<string>?
+        - items: ItemRequirement
+        - hideoutReq: list<Hideout>?
+        + RequirementsMet(): bool
+    }
+
+    class Task {
+        - name: string
+        - id: int
+        - description: string
+        - unlockRequirements: RequirementTask
+        - CompletionRequirements: RequirementTask
+    }
+
+    class RequirementTask {
+        - level: int?
+        - prevTasks: list<Task>?
+        - items: ItemRequirement?
+        - mission: list<string>?
+        + RequirementsMet(): bool
+    }
+
+    class ItemRequirement {
+        - itemsNeeded: list<Item>
+        - itemsHave: list<Item>
+        + CompleteCheck(): bool
+    }
+
+    class ItemController {
+        - itemList: list<Item>
+        + AddItem(): void
+        + RemoveItem(): void
+        + EditItem(): void
+        + GetItem(): Item
+    }
+
+    class Item {
+        - name: string
+        - id: int
+    }
+
+    class Faction {
+        <<enumeration>>
+        USAC
+        BEAR
+    }
+
+    UserController --> User
+    HideoutController --> Hideout
+    User --> Faction
+    User --> Task : "currentTasks"
+    User --> Hideout : "currentHideout"
+    User --> Item : "currentItems"
+    Hideout --> RequirementHideout : "levelupRequirement"
+    Task --> RequirementTask : "unlockRequirements"
+    Task --> RequirementTask : "CompletionRequirements"
+    RequirementHideout --> ItemRequirement : "items"
+    RequirementTask --> ItemRequirement : "items"
+    ItemRequirement --> Item : "itemsNeeded"
+    ItemRequirement --> Item : "itemsHave"
+    ItemController --> Item
