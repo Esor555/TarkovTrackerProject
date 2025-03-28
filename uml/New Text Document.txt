@@ -1,26 +1,38 @@
 classDiagram
     class User {
-        - name: string
         - id: int
+        - name: string
         - level: int
         - faction: Faction
+       
+    }
+    class Progress{
         - currentTasks: list<Task>
         - currentHideout: list<Hideout>
         - currentItems: list<Item>
-        + CompleteTask(): void
-        + UncompleteTask(): void
-        + CompleteHideout(): void
-        + UncompleteHideout(): void
-        + AddItem(): void
-        + RemoveItem(): void
     }
-
-    class UserController {
-        - userList: list<User>
-        + AddUser(): void
-        + RemoveUser(): void
-        + EditUser(): void
-        + GetUser(): void
+    class UserService {
+        -UserRepository repository 
+        -UserValidator validator
+        +GetAll(): List<User>
+        +AddUser(): (User user)
+        +UpdateUserName(User user, string newName)
+        +UpdateUserLevel(User user, int Newlevel)
+        +UpdateUserFaction(User user, Faction newFaction)
+    }
+    class UserRepository{
+        -Users : list<User>
+        +GetAll() : list<User> 
+        +AddUser(User user)
+        +GetUserById(Int id) : User
+        +DeleteUser(int id)
+    }
+    class UserValidator{
+        ~ValidateUser(User user)
+        ~ValidateId(int id)
+        ~ValidateName(string name)
+        ~ValidateLevel(int level)
+        ~ValidateFaction(Faction faction)
     }
 
     class HideoutController {
