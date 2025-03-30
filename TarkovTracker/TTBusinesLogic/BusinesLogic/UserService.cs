@@ -12,7 +12,8 @@ namespace TTBusinesLogic.BusinesLogic
         private UserValidator validator;
         public List<User> GetAll() { return new List<User>; }
         public void AddUser(User user) { }
-        public User GetUserByid(int id) { return new User(); }
-        public void DeleteUser(int id) { }
+        public void UpdateUserName(User user, string userName) { }
+        public void UpdateUserLevel(User user, int level) { }
+        public void UpdateUserFaction(User user, Faction faction) { }
     }
 }
