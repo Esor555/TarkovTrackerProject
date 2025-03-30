@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TTBusinesLogic
+namespace TTBusinesLogic.BusinesLogic
 {
     public class Task
     {
         private int Id { get; set; }
-        private string Name {get; set; }
+        private string Name { get; set; }
 
     }
 }
