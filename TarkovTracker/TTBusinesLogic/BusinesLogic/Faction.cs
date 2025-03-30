@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace TTBusinesLogic
 {
-    public class User
+    public enum Faction
     {
-
+        USAC,
+        BEAR
     }
 }
