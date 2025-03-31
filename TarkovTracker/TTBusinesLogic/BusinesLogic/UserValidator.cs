@@ -19,9 +19,25 @@ namespace TTBusinesLogic.BusinesLogic
             if (ErrorString == "") return true;
             throw new Exception(ErrorString);
         }
-        internal bool ValidateId(int id) { return id.GetType() == typeof(int); }
-        internal bool ValidateName(string name) { return name.GetType() == typeof(string); }
-        internal bool ValidateLevel(int level) { return level.GetType() == typeof(int); }
-        internal bool ValidateFaction(Faction faction) { return faction.GetType() == typeof(Faction); }
+        internal bool ValidateId(int id) 
+        { 
+            //add check to see if id is used already 
+            return id.GetType() == typeof(int); 
+        }
+        internal bool ValidateName(string name) 
+        {
+            //check if name is used already
+            return name.GetType() == typeof(string); 
+        }
+        internal bool ValidateLevel(int level) 
+        {
+            if (level.GetType() == typeof(string) && level >= 0 && level <= 99) 
+            return true;
+            return false;
+        }
+        internal bool ValidateFaction(Faction faction) 
+        { 
+            return faction.GetType() == typeof(Faction); 
+        }
     }
 }

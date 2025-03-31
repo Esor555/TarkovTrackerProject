@@ -4,16 +4,54 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TTBusinesLogic.DAL;
+using TTBusinesLogic.Interfaces;
 namespace TTBusinesLogic.BusinesLogic
 {
-    public class UserService
+    public class UserService : IService<User>
     {
         private UserRepository repository;
         private UserValidator validator;
-        public List<User> GetAll() { return new List<User>; }
-        public void AddUser(User user) { }
-        public void UpdateUserName(User user, string userName) { }
-        public void UpdateUserLevel(User user, int level) { }
-        public void UpdateUserFaction(User user, Faction faction) { }
+        public List<User> GetAll() 
+        {
+            return repository.GetAll();        
+        }
+        public void Add(User user) 
+        {
+            try
+            {
+                if (validator.ValidateUser(user))
+                {
+                    repository.AddUser(user);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+        }
+        public void UpdateName(User user, string userName) 
+        {
+            if (validator.ValidateName(userName))
+            {
+                user.Name = userName;
+            }
+        }
+        public void UpdateLevel(User user, int level) 
+        {
+            if (validator.ValidateLevel(level))
+            {
+                user.Level = level;
+            }
+        }
+        public void UpdateFaction(User user, Faction faction) 
+        {
+            if (validator.ValidateFaction(faction))
+            {
+                user.Faction = faction;
+            }
+        }
+
+        
     }
 }
