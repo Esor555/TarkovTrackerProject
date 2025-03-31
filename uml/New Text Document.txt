@@ -1,4 +1,7 @@
 classDiagram
+    class Program{
+        +Main()
+    }
     class User {
         - id: int
         - name: string
@@ -6,15 +9,10 @@ classDiagram
         - faction: Faction
        
     }
-    class Progress{
-        - currentTasks: list<Task>
-        - currentHideout: list<Hideout>
-        - currentItems: list<Item>
-    }
     class UserService {
         -UserRepository repository 
         -UserValidator validator
-        +GetAll(): List<User>
+        +GetAll() : List<User>
         +AddUser(): (User user)
         +UpdateUserName(User user, string newName)
         +UpdateUserLevel(User user, int Newlevel)
@@ -34,9 +32,13 @@ classDiagram
         ~ValidateLevel(int level)
         ~ValidateFaction(Faction faction)
     }
-
+    class Progress{
+        - currentTasks: list<Task>
+        - currentHideout: list<Hideout>
+        - currentItems: list<Item>
+    }
     class HideoutController {
-        - hideoutList: list<Hideout>
+        - hideoutList : list<Hideout>
         + AddHideout(): void
         + RemoveHideout(): void
         + EditHideout(): void
@@ -98,8 +100,11 @@ classDiagram
         USAC
         BEAR
     }
-
-    UserController --> User
+    Program --> UserService
+    UserService --> UserRepository
+    UserService --> UserValidator
+    UserRepository --> User
+    UserValidator -- User
     HideoutController --> Hideout
     User --> Faction
     User --> Task : "currentTasks"
