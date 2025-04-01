@@ -1,48 +1,49 @@
 classDiagram
+    class IService~T~ {
+        +GetAll(): List~T~
+        +Add(T item)
+        +Remove(int id)
+    }
+
+    class IRepository~T~ {
+        +GetAll(): List~T~
+        +Add(T item)
+        +GetById(int id): T
+        +Delete(int id)
+    }
+
+    class IValidator~T~ {
+        ~Validate(T item)
+        ~ValidateId(int id)
+    }
+
     class Program{
         +Main()
     }
+    
     class User {
         - id: int
         - name: string
         - level: int
         - faction: Faction
-       
     }
+
     class UserService {
         -UserRepository repository 
         -UserValidator validator
-        +GetAll() : List<User>
-        +AddUser(): (User user)
         +UpdateUserName(User user, string newName)
-        +UpdateUserLevel(User user, int Newlevel)
+        +UpdateUserLevel(User user, int newLevel)
         +UpdateUserFaction(User user, Faction newFaction)
     }
-    class UserRepository{
-        -Users : list<User>
-        +GetAll() : list<User> 
-        +AddUser(User user)
-        +GetUserById(Int id) : User
-        +DeleteUser(int id)
+    
+    class UserRepository {
+        -users: list<User>
     }
-    class UserValidator{
-        ~ValidateUser(User user)
-        ~ValidateId(int id)
+
+    class UserValidator {
         ~ValidateName(string name)
         ~ValidateLevel(int level)
         ~ValidateFaction(Faction faction)
-    }
-    class Progress{
-        - currentTasks: list<Task>
-        - currentHideout: list<Hideout>
-        - currentItems: list<Item>
-    }
-    class HideoutController {
-        - hideoutList : list<Hideout>
-        + AddHideout(): void
-        + RemoveHideout(): void
-        + EditHideout(): void
-        + GetHideout(): Hideout
     }
 
     class Hideout {
@@ -52,12 +53,19 @@ classDiagram
         - levelupRequirement: RequirementHideout
     }
 
-    class RequirementHideout {
-        - level: int?
-        - skills: list<string>?
-        - items: ItemRequirement
-        - hideoutReq: list<Hideout>?
-        + RequirementsMet(): bool
+    class HideoutService {
+        -HideoutRepository repository
+        -HideoutValidator validator
+        +UpgradeHideout(Hideout hideout)
+    }
+
+    class HideoutRepository {
+        -hideouts: list<Hideout>
+    }
+
+    class HideoutValidator {
+        ~ValidateName(string name)
+        ~ValidateLevel(int level)
     }
 
     class Task {
@@ -65,29 +73,21 @@ classDiagram
         - id: int
         - description: string
         - unlockRequirements: RequirementTask
-        - CompletionRequirements: RequirementTask
+        - completionRequirements: RequirementTask
     }
 
-    class RequirementTask {
-        - level: int?
-        - prevTasks: list<Task>?
-        - items: ItemRequirement?
-        - mission: list<string>?
-        + RequirementsMet(): bool
+    class TaskService {
+        -TaskRepository repository
+        -TaskValidator validator
+        +CompleteTask(Task task)
     }
 
-    class ItemRequirement {
-        - itemsNeeded: list<Item>
-        - itemsHave: list<Item>
-        + CompleteCheck(): bool
+    class TaskRepository {
+        -tasks: list<Task>
     }
 
-    class ItemController {
-        - itemList: list<Item>
-        + AddItem(): void
-        + RemoveItem(): void
-        + EditItem(): void
-        + GetItem(): Item
+    class TaskValidator {
+        ~ValidateRequirements(RequirementTask requirement)
     }
 
     class Item {
@@ -100,21 +100,36 @@ classDiagram
         USAC
         BEAR
     }
-    Program --> UserService
+
+    Program --> IService
+    IService <|-- UserService
+    IService <|-- HideoutService
+    IService <|-- TaskService
+
+    IRepository <|-- UserRepository
+    IRepository <|-- HideoutRepository
+    IRepository <|-- TaskRepository
+
+    IValidator <|-- UserValidator
+    IValidator <|-- HideoutValidator
+    IValidator <|-- TaskValidator
+
     UserService --> UserRepository
     UserService --> UserValidator
     UserRepository --> User
     UserValidator -- User
-    HideoutController --> Hideout
+    
+    HideoutService --> HideoutRepository
+    HideoutService --> HideoutValidator
+    HideoutRepository --> Hideout
+    HideoutValidator -- Hideout
+
+    TaskService --> TaskRepository
+    TaskService --> TaskValidator
+    TaskRepository --> Task
+    TaskValidator -- Task
+
     User --> Faction
     User --> Task : "currentTasks"
     User --> Hideout : "currentHideout"
     User --> Item : "currentItems"
-    Hideout --> RequirementHideout : "levelupRequirement"
-    Task --> RequirementTask : "unlockRequirements"
-    Task --> RequirementTask : "CompletionRequirements"
-    RequirementHideout --> ItemRequirement : "items"
-    RequirementTask --> ItemRequirement : "items"
-    ItemRequirement --> Item : "itemsNeeded"
-    ItemRequirement --> Item : "itemsHave"
-    ItemController --> Item

@@ -5,9 +5,11 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TTBusinesLogic.Interfaces;
+
 namespace TTBusinesLogic.BusinesLogic
 {
-    internal class UserValidator
+    internal class UserValidator 
     {
         internal bool ValidateUser(User user)
         {
