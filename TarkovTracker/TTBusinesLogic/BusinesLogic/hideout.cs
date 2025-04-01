@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TTBusinesLogic
 {
-    internal class hideout
+    public class hideout
     {
     }
 }
