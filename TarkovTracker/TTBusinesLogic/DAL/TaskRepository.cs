@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TTBusinesLogic
+namespace TTBusinesLogic.DAL
 {
-    public class Hideout
-    {
-    }
+	internal class TaskRepository
+	{
+	}
 }

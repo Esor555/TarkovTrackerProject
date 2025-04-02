@@ -12,6 +12,6 @@ namespace TTBusinesLogic.Interfaces
     {
         public List<T> GetAll();
         public void Add(T var);
-        public void UpdateName(T var, string newname);
+        public void Remove(int id);
     }
 }

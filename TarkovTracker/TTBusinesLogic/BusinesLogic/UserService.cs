@@ -30,6 +30,11 @@ namespace TTBusinesLogic.BusinesLogic
             }
 
         }
+
+        public void Remove(int id)
+        {
+        }
+
         public void UpdateName(User user, string userName) 
         {
             if (validator.ValidateName(userName))

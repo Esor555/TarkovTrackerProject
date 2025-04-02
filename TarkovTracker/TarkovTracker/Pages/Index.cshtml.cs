@@ -18,10 +18,7 @@ namespace TarkovTracker.Pages
         {
             _logger = logger;
             Configuration = configuration;
-            BaseDAL baseDAL = new BaseDAL(Configuration["ConnectionStrings:1"]);
-            baseDAL.Connection();
-            Test = baseDAL.test;
-            TarkovApi();
+    
 		}
 		public void LoginTest()
 		{
@@ -41,30 +38,7 @@ namespace TarkovTracker.Pages
 			
 
 		}
-        public async Task TarkovApi()
-        {
-            var data = new Dictionary<string, string>()
-            {
-                {"query", "{maps{name}}"}
-            };
-            using (var httpClient = new HttpClient())
-            {
-
-                //Http response message
-                var httpResponse = await httpClient.PostAsJsonAsync("https://api.tarkov.dev/graphql", data);
-
-                //Response content
-                var responseContent = await httpResponse.Content.ReadAsStringAsync();
-                //_logger.LogInformation(responseContent);
-                //Print response
-                foreach (var test in responseContent)
-                {
-	                TarkovTest += test.ToString();
-                }
-                _logger.LogInformation(TarkovTest);
-
-            }
-        }
+       
 
 
     }

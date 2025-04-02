@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TTBusinesLogic
+namespace TTBusinesLogic.BusinesLogic
 {
-    public class Hideout
-    {
-    }
+	public class HideoutService
+	{
+	}
 }
