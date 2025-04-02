@@ -18,14 +18,27 @@ namespace TarkovTracker.Pages
         {
             _logger = logger;
             Configuration = configuration;
-        }
-      
-        public void OnGet()
-        {
             BaseDAL baseDAL = new BaseDAL(Configuration["ConnectionStrings:1"]);
             baseDAL.Connection();
             Test = baseDAL.test;
-			TarkovApi();
+            TarkovApi();
+		}
+		public void LoginTest()
+		{
+			
+
+
+		}
+		public void OnGet()
+        {
+
+         LoginService logine = new LoginService(Configuration);
+		
+			LoginSend login = new LoginSend("admin", "password");
+
+			logine.Authenticate(login);
+			LoginGet loginget = logine.Authenticate(login);
+			
 
 		}
         public async Task TarkovApi()
