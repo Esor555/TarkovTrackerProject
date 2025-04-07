@@ -1,21 +1,29 @@
 classDiagram
+    class IuserRepository{
+        +GetAll() : List~User~
+        +Add(User user)
+        +GetById(int id): User
+        +Delete(int id)
+    }
+        class IHideoutRepository{
+        +GetAll() : List~Hideout~
+        +Add(Hideout hideout)
+        +GetById(int id): Hideout
+        +Delete(int id)
+    }
+        class ITaskRepository{
+        +GetAll() : List~Task~
+        +Add(Task task)
+        +GetById(int id): Task
+        +Delete(int id)
+    }
     class IService~T~ {
         +GetAll(): List~T~
         +Add(T item)
         +Remove(int id)
     }
 
-    class IRepository~T~ {
-        +GetAll(): List~T~
-        +Add(T item)
-        +GetById(int id): T
-        +Delete(int id)
-    }
 
-    class IValidator~T~ {
-        ~Validate(T item)
-        ~ValidateId(int id)
-    }
 
     class Program{
         +Main()
@@ -41,9 +49,11 @@ classDiagram
     }
 
     class UserValidator {
-        ~ValidateName(string name)
-        ~ValidateLevel(int level)
-        ~ValidateFaction(Faction faction)
+        ~ValidateUser(User user): bool
+        ~ValidateId(int id): bool
+        ~ValidateName(string name): bool
+        ~ValidateLevel(int level): bool
+        ~ValidateFaction(Faction faction): bool
     }
 
     class Hideout {
@@ -64,8 +74,10 @@ classDiagram
     }
 
     class HideoutValidator {
-        ~ValidateName(string name)
-        ~ValidateLevel(int level)
+        ~ValidateHideout(Hideout hideout): bool
+        ~ValidateId(int id): bool
+        ~ValidateName(string name): bool
+        ~ValidateLevel(int level): bool
     }
 
     class Task {
@@ -87,13 +99,10 @@ classDiagram
     }
 
     class TaskValidator {
+        //addlater
         ~ValidateRequirements(RequirementTask requirement)
     }
 
-    class Item {
-        - name: string
-        - id: int
-    }
 
     class Faction {
         <<enumeration>>
@@ -105,26 +114,22 @@ classDiagram
     IService <|-- UserService
     IService <|-- HideoutService
     IService <|-- TaskService
-
-    IRepository <|-- UserRepository
-    IRepository <|-- HideoutRepository
-    IRepository <|-- TaskRepository
-
-    IValidator <|-- UserValidator
-    IValidator <|-- HideoutValidator
-    IValidator <|-- TaskValidator
-
-    UserService --> UserRepository
+  
+    UserService --> IuserRepository
+    IuserRepository <|-- UserRepository
+    
     UserService --> UserValidator
     UserRepository --> User
     UserValidator -- User
     
-    HideoutService --> HideoutRepository
+    HideoutService --> IHideoutRepository
+    IHideoutRepository <|-- HideoutRepository
     HideoutService --> HideoutValidator
     HideoutRepository --> Hideout
     HideoutValidator -- Hideout
 
-    TaskService --> TaskRepository
+    TaskService --> ITaskRepository
+    ITaskRepository <|-- TaskRepository
     TaskService --> TaskValidator
     TaskRepository --> Task
     TaskValidator -- Task
@@ -132,4 +137,4 @@ classDiagram
     User --> Faction
     User --> Task : "currentTasks"
     User --> Hideout : "currentHideout"
-    User --> Item : "currentItems"
+   
