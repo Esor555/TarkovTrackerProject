@@ -10,5 +10,5 @@ namespace TTBusinesLogic.BusinesLogic
     {
         public List<Hideout> HideoutStations { get; set; }
     }
-
+ 
 }

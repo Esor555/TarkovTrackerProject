@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TarkovTracker", "TarkovTracker\TarkovTracker.csproj", "{10D3C617-B155-4EF3-9018-3F11DD3D7DC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TarkovTracker", "TarkovTracker\TarkovTracker.csproj", "{10D3C617-B155-4EF3-9018-3F11DD3D7DC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTBusinesLogic", "TTBusinesLogic\TTBusinesLogic.csproj", "{B0EBA2F3-6EDF-4E01-8831-989640AF62CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TTBusinesLogic", "TTBusinesLogic\TTBusinesLogic.csproj", "{B0EBA2F3-6EDF-4E01-8831-989640AF62CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tarkovTest", "tarkovTest\tarkovTest.csproj", "{D02707E6-3905-4EE2-95DE-6BABFA003844}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tarkovTest", "tarkovTest\tarkovTest.csproj", "{D02707E6-3905-4EE2-95DE-6BABFA003844}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
