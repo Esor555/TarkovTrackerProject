@@ -21,7 +21,7 @@ namespace TTBusinesLogic.BusinesLogic
             {
                 if (validator.ValidateUser(user))
                 {
-                    repository.AddUser(user);
+                    repository.Add(user);
                 }
             }
             catch (Exception ex)

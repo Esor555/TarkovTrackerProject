@@ -10,7 +10,7 @@ namespace TTBusinesLogic.Interfaces
 	public interface IuserRepository
 	{
 		public List<User> GetAll();
-		public void Add(User user);
+		public bool Add(User user);
 		public User GetById(int id);
 		public void Delete(int id);
 	}

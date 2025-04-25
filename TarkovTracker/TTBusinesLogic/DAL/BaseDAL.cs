@@ -9,29 +9,31 @@ namespace TTBusinesLogic.DAL
 {
     public class BaseDAL
     {
-        public string test = "";
-        private string connectionstring = "";
+
+        private string connectionString;
         public BaseDAL(string ConnectionString)
         {
-            connectionstring = ConnectionString;
+            connectionString = ConnectionString;
         }
-        
-        public void Connection()
+        protected SqlConnection CreateConnection()
         {
-            SqlConnection sqlconnection = new SqlConnection(connectionstring);
-            sqlconnection.Open();
-            string query = "select * from user_info";
-            using (SqlCommand cmd = new SqlCommand(query, sqlconnection))
+            return new SqlConnection(connectionString);
+        }
+        protected SqlCommand QueryBuilder(SqlConnection conn, string query, string[] parameters, object[] values)
+        {
+            SqlCommand cmd = new SqlCommand(query, conn);
+            for (int i = 0; i < parameters.Length; i++)
             {
-                using (SqlDataReader reader = cmd.ExecuteReader())
+                if (values.Length == parameters.Length)
                 {
-                    while (reader.Read())
-                    {
-                        test += " " + reader[0].ToString() + " " + reader[1].ToString() + " " + reader[2].ToString() + " " + reader[3].ToString() + " " + reader[4].ToString() + "\n";
-                        
-                    }
+                    cmd.Parameters.AddWithValue(parameters[i], values[i] ?? (object)DBNull.Value);
                 }
             }
+            return cmd;
+        }
+        protected SqlCommand QueryBuilder(SqlConnection conn, string query)
+        {
+            return QueryBuilder(conn, query, [], []);
         }
     }
 }

@@ -13,6 +13,6 @@ namespace TTBusinesLogic
         public string Id { get; set; }
         public string ImageLink { get; set; }
         public int? TarkovDataId { get; set; }
-        public List<HideoutLevel> Levels { get; set; }
+        //public List<HideoutLevel> Levels { get; set; }
     }
 }

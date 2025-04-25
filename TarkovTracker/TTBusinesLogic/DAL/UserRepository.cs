@@ -3,42 +3,49 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Data.SqlClient;
 using TTBusinesLogic.BusinesLogic;
+using TTBusinesLogic.Interfaces;
 
 namespace TTBusinesLogic.DAL
 {
-    public  class UserRepository
+    public  class UserRepository: BaseDAL, IuserRepository
     {
         private List<User> Users;
+        public UserRepository(string ConnectionString) : base(ConnectionString) { }
 
-        public List<User> GetAll() {
-            //temporary code later used for database 
-            return Users; 
-        }
-        public void AddUser(User user) 
+        public bool Add(User user)
         {
-            //temporary code later used for database 
-            Users.Add(user);
-        }
-        public User GetUserByid(int id) 
-        {
-            //temporary code later used for database 
-            foreach (User user in Users)
+            using (SqlConnection connection = CreateConnection())
             {
-                if (user.Id == id) return user;
+                connection.Open();
+                string query =
+                    "INSERT INTO user_info (id, username, password_hash, level, role) VALUES(@Id, @Username, @Password_Hash, @UserLevel, @Role)";
+                SqlCommand command = QueryBuilder(connection, query,
+                    ["@Id", "@Username", "@Password_Hash", "@UserLevel", "@Role"],
+                    [user.Id, user.Name, "passwordhash", user.Level, user.Role,]);
+                int i = command.ExecuteNonQuery();
+                if (i == 1)
+                {
+                    return false;
+                }
+                return true;
             }
-            throw new Exception("something went wrong while looking for the id");
         }
-        public void DeleteUser(int id) 
+
+        public void Delete(int id)
         {
-            //temporary code later used for database 
-            foreach(User user in Users)
-            {
-                if (user.Id == id)
-                { 
-                   Users.Remove(user);
-                }    
-            }
+            throw new NotImplementedException();
+        }
+
+        public List<User> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public User GetById(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

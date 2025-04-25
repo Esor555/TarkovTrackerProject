@@ -10,13 +10,43 @@ namespace TTBusinesLogic.BusinesLogic
     public class User
     {
         private int id;
-        public int Id {  get { return id; } set { id = value; } }
+
+        public int Id
+        {
+            get => id;
+            set => id = value;
+        }
+
         private string name;
-        public string Name { get { return name; } set { name = value; } }
+
+        public string Name
+        {
+            get => name;
+            set => name = value;
+        }
+
         private int level;
-        public int Level { get { return level; } set { level = value; } }
+
+        public int Level
+        {
+            get => level;
+            set => level = value;
+        }
+
+        private string role;
+        public string Role
+        {
+            get => role;
+            set => role = value;
+        }
+
         private Faction faction;
-        public Faction Faction { get { return faction; } set { faction = value; } }
+
+        public Faction Faction
+        {
+            get => faction;
+            set => faction = value;
+        }
 
         public User(int id, string name, int level, Faction faction)
         {
@@ -24,7 +54,9 @@ namespace TTBusinesLogic.BusinesLogic
             this.Name = name;
             this.Level = level;
             this.Faction = faction;
+            this.Role = "User";
         }
-        public User() { }
+
+  
     }
 }
