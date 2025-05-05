@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <Folder Include="models\" />
+    <Folder Include="wwwroot\Json\" />
   </ItemGroup>
 
 </Project>

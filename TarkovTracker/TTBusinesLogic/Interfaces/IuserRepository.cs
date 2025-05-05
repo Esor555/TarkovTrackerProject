@@ -9,9 +9,11 @@ namespace TTBusinesLogic.Interfaces
 {
 	public interface IuserRepository
 	{
-		public List<User> GetAll();
-		public bool Add(User user);
-		public User GetById(int id);
-		public void Delete(int id);
-	}
+        List<UserDTO> GetAll();
+        UserDTO GetById(int id);
+        void Add(UserDTO user);
+        void Update(UserDTO user);
+        void Delete(int id);
+
+    }
 }

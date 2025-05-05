@@ -1,62 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TTBusinesLogic.DAL;
+﻿using TTBusinesLogic.DTO;
 using TTBusinesLogic.Interfaces;
+
 namespace TTBusinesLogic.BusinesLogic
 {
-    public class UserService : IService<User>
+    public class UserService
     {
-        private UserRepository repository;
-        private UserValidator validator;
-        public List<User> GetAll() 
-        {
-            return repository.GetAll();        
-        }
-        public void Add(User user) 
-        {
-            try
-            {
-                if (validator.ValidateUser(user))
-                {
-                    repository.Add(user);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+        private readonly IuserRepository _repository;
 
+        public UserService(IuserRepository repository)
+        {
+            _repository = repository;
         }
 
-        public void Remove(int id)
+        public void UpdateUserName(UserDTO user, string newName)
         {
+            user.Username = newName;
+            _repository.Update(user);
         }
 
-        public void UpdateName(User user, string userName) 
+        public void UpdateUserLevel(UserDTO user, int newLevel)
         {
-            if (validator.ValidateName(userName))
-            {
-                user.Name = userName;
-            }
-        }
-        public void UpdateLevel(User user, int level) 
-        {
-            if (validator.ValidateLevel(level))
-            {
-                user.Level = level;
-            }
-        }
-        public void UpdateFaction(User user, Faction faction) 
-        {
-            if (validator.ValidateFaction(faction))
-            {
-                user.Faction = faction;
-            }
+            user.Level = newLevel;
+            _repository.Update(user);
         }
 
-        
+        public void UpdateUserFaction(UserDTO user, Faction newFaction)
+        {
+            user.Faction = newFaction;
+            _repository.Update(user);
+        }
     }
 }
