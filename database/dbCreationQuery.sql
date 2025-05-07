@@ -4,7 +4,8 @@ CREATE TABLE user_data (
     password_hash VARCHAR(255) NOT NULL,
     level INT DEFAULT 1,
     role VARCHAR(50) NOT NULL CHECK (role IN ('admin', 'user')),
-    created_at DATETIME DEFAULT GETDATE()
+    created_at DATETIME DEFAULT GETDATE(),
+	faction INT DEFAULT 1
 );
 
 CREATE TABLE trader (

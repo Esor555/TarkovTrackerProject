@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TTBusinesLogic.BusinesLogic
+namespace TTBusinesLogic.DTO
 {
-    public enum Faction
+    public class HideoutDTO
     {
-        USAC,
-        BEAR
+        public int id;
+        public string name;
     }
 }

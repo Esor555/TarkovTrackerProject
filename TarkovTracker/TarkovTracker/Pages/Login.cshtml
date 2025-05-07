@@ -1,0 +1,29 @@
+﻿@page
+@using TarkovTracker.Pages.Shared
+@model TarkovTracker.Pages.LoginModel
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Http
+@using System.Security.Claims
+@{
+
+}
+<h2>Login</h2>
+
+<form method="post">
+	<input type="text" asp-for="UserDto.Username" placeholder="Username" />
+	<span asp-validation-for="UserDto.Username" class="text-danger"></span>
+
+	<input type="password" asp-for="UserDto.password" placeholder="Password" />
+	<span asp-validation-for="UserDto.password" class="text-danger"></span>
+
+	<input type="submit" value="Login" />
+</form>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+	<p class="text-danger">@Model.ErrorMessage</p>
+}
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}

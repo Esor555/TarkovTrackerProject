@@ -1,0 +1,48 @@
+﻿@page
+@model TarkovTracker.Pages.Quests.IndexModel
+@{
+	ViewData["Title"] = "Quests";
+	Layout = "_LoggedInLayout";
+}
+
+<h2>Quests</h2>
+
+<form method="post">
+	<input type="text" asp-for="NewQuest.Title" placeholder="Title" />
+	<input type="text" asp-for="NewQuest.Description" placeholder="Description" />
+	<input type="number" asp-for="NewQuest.RequiredLevel" placeholder="Required Level" />
+	<input type="number" asp-for="NewQuest.TraderId" placeholder="Trader ID" />
+	<input type="text" asp-for="NewQuest.WikiLink" placeholder="Wiki Link" />
+	<button type="submit" asp-page-handler="Add">Add Quest</button>
+</form>
+
+<table>
+	<thead>
+	<tr>
+		<th>Title</th>
+		<th>Level</th>
+		<th>Discription</th>
+		<th>Previouse quest</th>
+		<th>Trader</th>
+		<th>Actions</th>
+	</tr>
+	</thead>
+	<tbody>
+	@foreach (var quest in Model.Quests)
+	{
+		<tr>
+			<td>@quest.Title</td>
+			<td>@quest.RequiredLevel</td>
+			<td>@quest.Description</td>
+			<td>@quest.PreviousQuestId</td>
+			<td>@quest.TraderId</td>
+			<td>
+				<form method="post">
+					<input type="hidden" name="id" value="@quest.Id" />
+					<button type="submit" asp-page-handler="Delete">Delete</button>
+				</form>
+			</td>
+		</tr>
+	}
+	</tbody>
+</table>

@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TTBusinesLogic.DAL
+namespace TTBusinesLogic.enums
 {
-	internal class TaskRepository
-	{
-	}
+    public enum Faction
+    {
+        USEC = 1,
+        BEAR = 2
+    }
 }

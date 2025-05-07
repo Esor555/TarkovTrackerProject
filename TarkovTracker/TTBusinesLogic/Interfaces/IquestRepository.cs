@@ -4,18 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TTBusinesLogic.BusinesLogic;
-using TTBusinesLogic.DTO;
 
 namespace TTBusinesLogic.Interfaces
 {
-    public interface IuserRepository
-	{
-        List<User> GetAll();
-        User GetByName(string userName);
-        User GetById(int id);
-        bool Add(User user);
+    public interface IquestRepository
+    {
+        List<Quest> GetAll();
+        Quest GetByName(string Quest);
+        Quest GetById(int id);
+        bool Add(Quest quest);
         bool Delete(int id);
-        bool Update(User user);
+        bool Update(Quest quest);
 
     }
 }

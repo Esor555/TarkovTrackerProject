@@ -1,0 +1,19 @@
+﻿@page
+@model Register
+@{
+}
+
+
+<h2>Register</h2>
+
+<form method="post">
+	<input type="text" asp-for="UserDto.Username" placeholder="Username" />
+	<input type="number" asp-for="UserDto.Level" placeholder="Level" />
+	<input type="password" asp-for="UserDto.password" placeholder="Password" />
+	<select asp-for="UserDto.Faction">
+		<option value="USEC">USEC</option>
+		<option value="BEAR">BEAR</option>
+	</select>
+	<input type="submit" value="Add User" asp-page-handler="Add" />
+</form>
+

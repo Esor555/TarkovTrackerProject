@@ -9,12 +9,11 @@ using TTBusinesLogic.BusinesLogic;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using TTBusinesLogic;
 using Newtonsoft.Json;
-using YourApp.Services;
 namespace TarkovTracker.Pages
 {
     public class IndexModel : PageModel
     {
-        
+        public string username = "test";
 
 
 

@@ -1,7 +1,14 @@
 ﻿@page
 @model IndexModel
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Http
+@using System.Security.Claims
 @{
     ViewData["Title"] = "Home page";
-	
+    if (User.Identity.IsAuthenticated)
+	    Layout = "_LoggedInLayout";
+    else Layout = "_layout";
+    var user = User;
+    var username = user.Identity.IsAuthenticated ? user.Identity.Name : "Guest";
+    ViewData["playername"] = username;
 }
-

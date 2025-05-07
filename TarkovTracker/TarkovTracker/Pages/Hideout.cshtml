@@ -1,0 +1,36 @@
+﻿@page
+@model TarkovTracker.Pages.Hideout.IndexModel
+@{
+	ViewData["Title"] = "Hideout Stations";
+	Layout = "_LoggedInLayout";
+}
+
+<h2>Hideout Stations</h2>
+
+<form method="post">
+	<input type="text" asp-for="HideoutStation.name" placeholder="Station Name" />
+	<button type="submit" asp-page-handler="Add">Add Station</button>
+</form>
+
+<table>
+	<thead>
+	<tr>
+		<th>Name</th>
+		<th>Actions</th>
+	</tr>
+	</thead>
+	<tbody>
+	@foreach (var station in Model.HideoutStations)
+	{
+		<tr>
+			<td>@station.Name</td>
+			<td>
+				<form method="post">
+					<input type="hidden" name="id" value="@station.Id" />
+					<button type="submit" asp-page-handler="Delete">Delete</button>
+				</form>
+			</td>
+		</tr>
+	}
+	</tbody>
+</table>
