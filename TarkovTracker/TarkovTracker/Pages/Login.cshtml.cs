@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Data;
 using System.Security.Claims;
 using TTBusinesLogic.BusinesLogic;
 using TTBusinesLogic.DTO;
@@ -27,7 +28,7 @@ namespace TarkovTracker.Pages
         {
             if (!ModelState.IsValid)
             {
-                return Page();
+               return Page();
             }
 
             var user = _userService.GetByName(UserDto.Username);
@@ -46,11 +47,11 @@ namespace TarkovTracker.Pages
 
             // Create claims based on user data
             var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.Name),
-                new Claim("Role", user.Role ?? "User")  // Default to "User" if role is null
-            };
+{
+    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+    new Claim(ClaimTypes.Name, user.Name),
+    new Claim(ClaimTypes.Role, user.Role ?? "User") // fallback to "User" if null
+};
 
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);

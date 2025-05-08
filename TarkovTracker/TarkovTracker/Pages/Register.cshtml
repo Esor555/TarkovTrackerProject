@@ -1,7 +1,13 @@
 ﻿@page
 @model Register
 @{
-}
+	ViewData["Title"] = "Tarkov Tracker";
+	if (User.Identity.IsAuthenticated) Layout = "_LoggedInLayout";
+	else Layout = "_Layout";
+	var user = User;
+	ViewData["playername"] = user.Identity.IsAuthenticated ? user.Identity.Name : "Guest"; ;
+	ViewData["role"] = user.IsInRole("admin") ? "admin" : "user";
+	}
 
 
 <h2>Register</h2>
@@ -14,6 +20,7 @@
 		<option value="USEC">USEC</option>
 		<option value="BEAR">BEAR</option>
 	</select>
+	<input type="text" asp-for="UserDto.role" placeholder="Role" />
 	<input type="submit" value="Add User" asp-page-handler="Add" />
 </form>
 

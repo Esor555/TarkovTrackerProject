@@ -1,8 +1,12 @@
 ﻿@page
 @model TarkovTracker.Pages.Hideout.IndexModel
 @{
-	ViewData["Title"] = "Hideout Stations";
-	Layout = "_LoggedInLayout";
+	ViewData["Title"] = "Tarkov Tracker";
+	if (User.Identity.IsAuthenticated) Layout = "_LoggedInLayout";
+	else Layout = "_Layout";
+	var user = User;
+	ViewData["playername"] = user.Identity.IsAuthenticated ? user.Identity.Name : "Guest"; ;
+	ViewData["role"] = user.IsInRole("admin") ? "admin" : "user";
 }
 
 <h2>Hideout Stations</h2>

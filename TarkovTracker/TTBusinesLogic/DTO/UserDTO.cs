@@ -11,11 +11,12 @@ namespace TTBusinesLogic.DTO
 {
     public class UserDTO
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Username { get; set; }
-        public int Level { get; set; }
-        [Required]
-        public Faction Faction { get; set; }
+        public int? Level { get; set; }
+       
+        public Faction? Faction { get; set; }
         public string password { get; set; }
+        public string? role { get; set; }
     }
 }

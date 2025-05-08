@@ -1,14 +1,15 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+  
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - TarkovTracker</title>
 
-    <!-- Military-style font -->
+
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet" />
 
-    <!-- Stylesheets -->
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/TarkovTracker.styles.css" asp-append-version="true" />
@@ -70,26 +71,42 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-               <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/Quest">Quest</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/Hideout">Hideout</a>
-                        </li>
-                        <li class="nav-item">
-	                        <a class="nav-link" asp-area="" asp-page="/Logout">Logout</a>
-                        </li>
-                        <li class="nav-item">
-	                        <a class="nav-link text-light" asp-page="/User/Quest">My Quests</a>
-                        </li>
-                        <li class="nav-item">
-	                        <a class="nav-link text-light" asp-page="/User/Hideout">My Hideout</a>
-                        </li>
+                        @{
+                            var role = (string)ViewData["role"] ?? "user"; // Default to user if not set
+                        }
+                        @if (role == "admin")
+                        {
+                            <!-- Admin-specific links -->
+                            <li class="nav-item">
+                                <a class="nav-link" asp-page="/Index">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-page="/Quest">Manage Quests</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-page="/Hideout">Manage Hideouts</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <!-- User-specific links -->
+                            <li class="nav-item">
+                                <a class="nav-link" asp-page="/Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-page="/User/Quest">My Quests</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-page="/User/Hideout">My Hideout</a>
+                            </li>
+                        }
 
+                        <!-- Shared links -->
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Logout">Logout</a>
+                        </li>
                     </ul>
+
                 </div>
                 <div class="navbar-text">
                     @ViewData["playername"]

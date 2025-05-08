@@ -5,7 +5,12 @@
 @using Microsoft.AspNetCore.Http
 @using System.Security.Claims
 @{
-
+	ViewData["Title"] = "Tarkov Tracker";
+	if (User.Identity.IsAuthenticated) Layout = "_LoggedInLayout";
+	else Layout = "_Layout";
+	var user = User;
+	ViewData["playername"] = user.Identity.IsAuthenticated ? user.Identity.Name : "Guest"; ;
+	ViewData["role"] = user.IsInRole("admin") ? "admin" : "user";
 }
 <h2>Login</h2>
 

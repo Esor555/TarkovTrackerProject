@@ -4,16 +4,14 @@
 @using Microsoft.AspNetCore.Http
 @using System.Security.Claims
 @{
-	ViewData["Title"] = "Home page";
-	if (User.Identity.IsAuthenticated)
-		Layout = "_LoggedInLayout";
-	else
-		Layout = "_Layout";
-
+	ViewData["Title"] = "Tarkov Tracker";
+	if (User.Identity.IsAuthenticated) Layout = "_LoggedInLayout";
+	else Layout = "_Layout";
 	var user = User;
-	var username = user.Identity.IsAuthenticated ? user.Identity.Name : "Guest";
-	ViewData["playername"] = username;
+	ViewData["playername"] = user.Identity.IsAuthenticated ? user.Identity.Name : "Guest"; ;
+	ViewData["role"] = user.IsInRole("admin") ? "admin" : "user";
 }
+
 
 <div class="container text-center mt-5">
 	<h1 class="display-4 text-uppercase fw-bold mb-4">Welcome to TarkovTracker</h1>

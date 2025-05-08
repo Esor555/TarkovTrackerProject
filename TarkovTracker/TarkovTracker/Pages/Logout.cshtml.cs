@@ -5,15 +5,17 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace TarkovTracker.Pages
 {
-	public class LogoutModel : PageModel
-	{
-		public async Task<IActionResult> OnGet()
-		{
-			// Sign out and clear the authentication cookie
-			await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+    public class LogoutModel : PageModel
+    {
+        public void OnGet()
+        {
+            // Only shows the confirmation UI
+        }
 
-			// Redirect to the login page after logout
-			return RedirectToPage("Login");
-		}
-	}
+        public async Task<IActionResult> OnPostAsync()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToPage("Login");
+        }
+    }
 }

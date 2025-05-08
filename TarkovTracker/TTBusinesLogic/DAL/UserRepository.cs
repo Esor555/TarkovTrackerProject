@@ -57,7 +57,7 @@ namespace TTBusinesLogic.DAL
 		public User GetByName(string userName)
 		{
 			User user = null;
-			string query = "SELECT id, username, level, faction, password_hash FROM user_data WHERE username = @username";
+			string query = "SELECT id, username, level, faction, password_hash, role FROM user_data WHERE username = @username";
 
 			using (SqlConnection conn = CreateConnection())
 			using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -77,7 +77,8 @@ namespace TTBusinesLogic.DAL
 								Name = reader.GetString(1),
 								Level = reader.GetInt32(2),
 								Faction = (Faction)reader.GetInt32(3),
-								PasswordHash = reader.GetString(4)
+								PasswordHash = reader.GetString(4),
+                                Role = reader.GetString(5)
 							};
 						}
 					}
@@ -93,7 +94,7 @@ namespace TTBusinesLogic.DAL
 		public User GetById(int id)
         {
 	        User user = null;
-            string query = "SELECT id, username, level, faction, password_hash FROM user_data WHERE id = @id";
+            string query = "SELECT id, username, level, faction, password_hash, role FROM user_data WHERE id = @id";
 
             using (SqlConnection conn = CreateConnection())
             using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -113,7 +114,8 @@ namespace TTBusinesLogic.DAL
                                 Name = reader.GetString(1),
                                 Level = reader.GetInt32(2),
                                 Faction = (Faction)reader.GetInt32(3),
-                                PasswordHash = reader.GetString(4)
+                                PasswordHash = reader.GetString(4),
+                                Role = reader.GetString(5)
                             };
                         }
                     }
@@ -137,7 +139,7 @@ namespace TTBusinesLogic.DAL
                 cmd.Parameters.AddWithValue("@username", user.Name);
                 cmd.Parameters.AddWithValue("@level", user.Level);
                 cmd.Parameters.AddWithValue("@passwordhash", PasswordHasher.HashPassword(user.PasswordHash));
-                cmd.Parameters.AddWithValue("@role", "user");
+                cmd.Parameters.AddWithValue("@role", user.Role);
                 cmd.Parameters.AddWithValue("@faction", user.Faction);
 
                 try

@@ -1,7 +1,12 @@
 ﻿@page
 @model ErrorModel
 @{
-    ViewData["Title"] = "Error";
+    ViewData["Title"] = "Tarkov Tracker";
+    if (User.Identity.IsAuthenticated) Layout = "_LoggedInLayout";
+    else Layout = "_Layout";
+    var user = User;
+    ViewData["playername"] = user.Identity.IsAuthenticated ? user.Identity.Name : "Guest"; ;
+    ViewData["role"] = user.IsInRole("admin") ? "admin" : "user";
 }
 
 <h1 class="text-danger">Error.</h1>
