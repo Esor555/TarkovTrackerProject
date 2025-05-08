@@ -1,0 +1,26 @@
+﻿@page
+@model QuestsModel
+@{
+	ViewData["Title"] = "Your Quests";
+}
+
+<h1>Your Quests</h1>
+
+<div class="row">
+	@foreach (var quest in Model.Quests)
+	{
+		var btnClass = quest.Status switch {
+			"Completed" => "success",
+			"InProgress" => "warning",
+			_ => "secondary"
+		};
+		<div class="col-md-4 mb-3">
+			<div class="card border-@btnClass shadow">
+				<div class="card-body">
+					<h5 class="card-title">@quest.Title</h5>
+					<span class="badge bg-@btnClass">@quest.Status</span>
+				</div>
+			</div>
+		</div>
+	}
+</div>

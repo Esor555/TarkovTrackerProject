@@ -5,6 +5,7 @@ using TTBusinesLogic.BusinesLogic;
 using TTBusinesLogic.DAL;
 using TTBusinesLogic.DTO;
 using TTBusinesLogic.enums;
+using TTBusinesLogic.BusinesLogic;
 
 namespace TarkovTracker.Pages
 {
@@ -12,7 +13,7 @@ namespace TarkovTracker.Pages
     {
         private readonly UserService _userService;
         
-        public List<User> Users { get; set; } = new();
+        public List<TTBusinesLogic.BusinesLogic.User> Users { get; set; } = new();
 
         [BindProperty] 
         public UserDTO UserDto { get; set; }
@@ -34,7 +35,7 @@ namespace TarkovTracker.Pages
              
                 return Page();
             }
-            var newUser = new User()
+            var newUser = new TTBusinesLogic.BusinesLogic.User()
             {
                 Name = UserDto.Username,
                 Level = UserDto.Level,

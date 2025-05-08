@@ -4,11 +4,41 @@
 @using Microsoft.AspNetCore.Http
 @using System.Security.Claims
 @{
-    ViewData["Title"] = "Home page";
-    if (User.Identity.IsAuthenticated)
-	    Layout = "_LoggedInLayout";
-    else Layout = "_layout";
-    var user = User;
-    var username = user.Identity.IsAuthenticated ? user.Identity.Name : "Guest";
-    ViewData["playername"] = username;
+	ViewData["Title"] = "Home page";
+	if (User.Identity.IsAuthenticated)
+		Layout = "_LoggedInLayout";
+	else
+		Layout = "_Layout";
+
+	var user = User;
+	var username = user.Identity.IsAuthenticated ? user.Identity.Name : "Guest";
+	ViewData["playername"] = username;
 }
+
+<div class="container text-center mt-5">
+	<h1 class="display-4 text-uppercase fw-bold mb-4">Welcome to TarkovTracker</h1>
+	<h3 class="text-muted mb-5">Track your hideout, quests, and progress through the battleground</h3>
+
+	@if (User.Identity.IsAuthenticated)
+	{
+		<div class="d-flex justify-content-center gap-4 flex-wrap">
+			<a asp-page="/Hideout" class="btn btn-outline-success btn-lg px-5 py-3 fs-4 shadow">
+				🛠️ Hideout
+			</a>
+			<a asp-page="/Quest" class="btn btn-outline-primary btn-lg px-5 py-3 fs-4 shadow">
+				📜 Quests
+			</a>
+		</div>
+	}
+	else
+	{
+		<div class="d-flex justify-content-center gap-4 flex-wrap">
+			<a asp-page="/Login" class="btn btn-outline-warning btn-lg px-5 py-3 fs-4 shadow">
+				🔐 Login
+			</a>
+			<a asp-page="/Register" class="btn btn-outline-info btn-lg px-5 py-3 fs-4 shadow">
+				📝 Register
+			</a>
+		</div>
+	}
+</div>
