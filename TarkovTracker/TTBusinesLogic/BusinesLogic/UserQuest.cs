@@ -16,6 +16,7 @@ namespace TTBusinesLogic.BusinesLogic
 
         private string status;
         public string Status { get => status; set => status = value; }
+        public Quest Quest { get; set; } 
 
         public UserQuest(int userId, int questId, string status)
         {
@@ -23,5 +24,6 @@ namespace TTBusinesLogic.BusinesLogic
             QuestId = questId;
             Status = status;
         }
+        public UserQuest(){}
     }
 }

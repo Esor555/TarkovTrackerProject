@@ -1,5 +1,5 @@
 ﻿@page
-@model TarkovTracker.Pages.Quests.IndexModel
+@model TarkovTracker.Pages.quest.IndexModel
 @{
 	ViewData["Title"] = "Quests";
 	Layout = "_LoggedInLayout";
@@ -36,12 +36,18 @@
 			<td>@quest.Description</td>
 			<td>@quest.PreviousQuestId</td>
 			<td>@quest.TraderId</td>
-			<td>
+		<td>
 				<form method="post">
 					<input type="hidden" name="id" value="@quest.Id" />
 					<button type="submit" asp-page-handler="Delete">Delete</button>
 				</form>
+
+				<form method="post">
+					<input type="hidden" name="questId" value="@quest.Id" />
+					<button type="submit" asp-page-handler="AssignToUser">Add to My Quests</button>
+				</form>
 			</td>
+
 		</tr>
 	}
 	</tbody>

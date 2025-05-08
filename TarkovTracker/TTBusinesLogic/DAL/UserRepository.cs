@@ -16,41 +16,41 @@ namespace TTBusinesLogic.DAL
     {
         public UserRepository(string connectionString) : base(connectionString) { }
 
-        public List<User> GetAll()
-        {
-            var users = new List<User>();
-            string query = "SELECT id, username, level, faction, created_at, role FROM user_data";
-
-            using (SqlConnection conn = CreateConnection())
-            using (SqlCommand cmd = new SqlCommand(query, conn))
+            public List<User> GetAll()
             {
-                try
+                var users = new List<User>();
+                string query = "SELECT id, username, level, faction, created_at, role FROM user_data";
+
+                using (SqlConnection conn = CreateConnection())
+                using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    conn.Open();
-                    using (var reader = cmd.ExecuteReader())
+                    try
                     {
-                        while (reader.Read())
+                        conn.Open();
+                        using (var reader = cmd.ExecuteReader())
                         {
-                            users.Add(new User()
+                            while (reader.Read())
                             {
-                                Id = reader.GetInt32(0),
-                                Name = reader.GetString(1),
-                                Level = reader.GetInt32(2),
-                                Faction = (Faction)reader.GetInt32(3),
-                                CreatedAt = reader.GetDateTime(4),
-                                Role = reader.GetString(5)
-                            });
+                                users.Add(new User()
+                                {
+                                    Id = reader.GetInt32(0),
+                                    Name = reader.GetString(1),
+                                    Level = reader.GetInt32(2),
+                                    Faction = (Faction)reader.GetInt32(3),
+                                    CreatedAt = reader.GetDateTime(4),
+                                    Role = reader.GetString(5)
+                                });
+                            }
                         }
                     }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error in GetAll: " + ex.Message);
+                    }
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error in GetAll: " + ex.Message);
-                }
-            }
 
-            return users;
-        }
+                return users;
+            }
 
 
 

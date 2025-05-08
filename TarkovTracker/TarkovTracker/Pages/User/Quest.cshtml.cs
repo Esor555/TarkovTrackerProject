@@ -1,38 +1,42 @@
+﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Data.SqlClient;
-using System.Security.Claims;
-using Microsoft.AspNetCore.Authorization;
+using TTBusinesLogic.BusinesLogic;
+using TTBusinesLogic.Interfaces;
 
-[Authorize]
 public class QuestsModel : PageModel
 {
-    public record QuestStatus(int QuestId, string Title, string Status);
+	private readonly IUserQuestService _userQuestService;
 
-    public List<QuestStatus> Quests = new();
+	public List<UserQuest> UserQuests { get; set; }
 
-    public async Task OnGetAsync()
-    {
-        var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+	public QuestsModel(IUserQuestService userQuestService)
+	{
+		_userQuestService = userQuestService;
+	}
 
-        using var connection = new SqlConnection("YourConnectionString");
-        await connection.OpenAsync();
+	public void OnGet()
+	{
+		int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+		UserQuests = _userQuestService.GetAllUserQuests(userId);
+	}
 
-        var command = new SqlCommand(@"
-            SELECT q.id, q.title, ISNULL(uq.status, 'NotStarted') as status
-            FROM quest q
-            LEFT JOIN user_quest uq ON q.id = uq.quest_id AND uq.user_id = @userId
-            ORDER BY q.title;", connection);
+	public IActionResult OnPostUpdateStatus(int questId, string newStatus)
+	{
+		int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
 
-        command.Parameters.AddWithValue("@userId", userId);
+		var updated = _userQuestService.Update(new UserQuest()
+		{
+			UserId = userId,
+			QuestId = questId,
+			Status = newStatus
+		});
 
-        using var reader = await command.ExecuteReaderAsync();
-        while (await reader.ReadAsync())
-        {
-            Quests.Add(new QuestStatus(
-                reader.GetInt32(0),
-                reader.GetString(1),
-                reader.GetString(2)
-            ));
-        }
-    }
+		if (!updated)
+		{
+			// Optionally handle failure
+		}
+
+		return RedirectToPage(); // Reload the page with updated data
+	}
 }

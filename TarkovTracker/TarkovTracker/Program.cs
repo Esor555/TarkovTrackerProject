@@ -1,4 +1,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using TTBusinesLogic.BusinesLogic;
+using TTBusinesLogic.DAL;
+using TTBusinesLogic.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +23,12 @@ builder.Services.AddAuthentication(options =>
 	});
 
 builder.Services.AddAuthorization();
+builder.Services.AddScoped<IUserQuestRepository>(provider =>
+    new UserQuestRepository(builder.Configuration.GetConnectionString("1")));
+
+builder.Services.AddScoped<IUserQuestService, UserQuestService>();
+
+
 
 var app = builder.Build();
 

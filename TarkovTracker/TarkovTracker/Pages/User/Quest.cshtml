@@ -1,26 +1,44 @@
 ﻿@page
+@using TarkovTracker.Pages.Shared
 @model QuestsModel
 @{
 	ViewData["Title"] = "Your Quests";
+	Layout = "_LoggedInLayout";
 }
 
 <h1>Your Quests</h1>
 
 <div class="row">
-	@foreach (var quest in Model.Quests)
+	@foreach (var quest in Model.UserQuests)
 	{
-		var btnClass = quest.Status switch {
+		var btnClass = quest.Status switch
+		{
 			"Completed" => "success",
 			"InProgress" => "warning",
 			_ => "secondary"
 		};
+
+		var nextStatus = quest.Status switch
+		{
+			"NotStarted" => "InProgress",
+			"InProgress" => "Completed",
+			"Completed" => "NotStarted", // Optional: loop back
+			_ => "NotStarted"
+		};
+
 		<div class="col-md-4 mb-3">
 			<div class="card border-@btnClass shadow">
 				<div class="card-body">
-					<h5 class="card-title">@quest.Title</h5>
+					<h5 class="card-title">@quest.Quest.Title</h5>
 					<span class="badge bg-@btnClass">@quest.Status</span>
+					<form method="post" asp-page-handler="UpdateStatus">
+						<input type="hidden" name="questId" value="@quest.QuestId" />
+						<input type="hidden" name="newStatus" value="@nextStatus" />
+						<button type="submit" class="btn btn-outline-@btnClass mt-2">Mark as @nextStatus</button>
+					</form>
 				</div>
 			</div>
 		</div>
 	}
+
 </div>
