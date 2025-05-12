@@ -31,6 +31,7 @@ builder.Services.AddScoped<IUserQuestService, UserQuestService>();
 
 
 var app = builder.Build();
+app.UseStaticFiles();
 
 // Configure the HTTP request pipeline.
 app.UseAuthentication();

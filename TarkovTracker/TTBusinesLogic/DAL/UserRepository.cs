@@ -96,9 +96,9 @@ namespace TTBusinesLogic.DAL
 	        User user = null;
             string query = "SELECT id, username, level, faction, password_hash, role FROM user_data WHERE id = @id";
 
-            using (SqlConnection conn = CreateConnection())
-            using (SqlCommand cmd = new SqlCommand(query, conn))
-            {
+            using SqlConnection conn = CreateConnection();
+            using SqlCommand cmd = new SqlCommand(query, conn) ;
+            
                 cmd.Parameters.AddWithValue("@id", id);
 
                 try
@@ -124,8 +124,7 @@ namespace TTBusinesLogic.DAL
                 {
                     Console.WriteLine("Error in GetById: " + ex.Message);
                 }
-            }
-
+            
             return user;
         }
 
