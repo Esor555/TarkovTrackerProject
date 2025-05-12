@@ -24,7 +24,7 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddAuthorization();
 builder.Services.AddScoped<IUserQuestRepository>(provider =>
-	new UserQuestRepository(builder.Configuration.GetConnectionString("1")));
+    new UserQuestRepository(builder.Configuration.GetConnectionString("1")));
 
 builder.Services.AddScoped<IUserQuestService, UserQuestService>();
 
