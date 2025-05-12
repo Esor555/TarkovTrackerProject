@@ -34,7 +34,6 @@ namespace TTBusinesLogic.BusinesLogic
 
         public bool AddQuest(Quest quest)
         {
-            // Optionally, add validation or business rules here
             if (string.IsNullOrWhiteSpace(quest.Title)) return false;
             return _questRepository.Add(quest);
         }

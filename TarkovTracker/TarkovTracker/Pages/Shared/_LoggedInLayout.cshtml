@@ -72,11 +72,11 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         @{
-                            var role = (string)ViewData["role"] ?? "user"; // Default to user if not set
+                            var role = (string)ViewData["role"] ?? "user"; 
                         }
                         @if (role == "admin")
                         {
-                            <!-- Admin-specific links -->
+                     
                             <li class="nav-item">
                                 <a class="nav-link" asp-page="/Index">Dashboard</a>
                             </li>
@@ -89,7 +89,7 @@
                         }
                         else
                         {
-                            <!-- User-specific links -->
+                         
                             <li class="nav-item">
                                 <a class="nav-link" asp-page="/Index">Home</a>
                             </li>
@@ -100,8 +100,6 @@
                                 <a class="nav-link text-light" asp-page="/User/Hideout">My Hideout</a>
                             </li>
                         }
-
-                        <!-- Shared links -->
                         <li class="nav-item">
                             <a class="nav-link" asp-page="/Logout">Logout</a>
                         </li>
