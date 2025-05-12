@@ -87,12 +87,10 @@ public class IndexModel : PageModel
 		return RedirectToPage();
 	}
 
-	// Helpers for the Razor page
 	public bool UserHasQuest(int questId)
 	{
 		return UserQuests.Any(q => q.QuestId == questId);
 	}
-
 	public UserQuest GetUserQuest(int questId)
 	{
 		return UserQuests.FirstOrDefault(q => q.QuestId == questId);

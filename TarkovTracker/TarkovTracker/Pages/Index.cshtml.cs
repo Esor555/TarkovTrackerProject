@@ -13,10 +13,6 @@ namespace TarkovTracker.Pages
 {
     public class IndexModel : PageModel
     {
-        public string username = "test";
-
-
-
 
     }
 }

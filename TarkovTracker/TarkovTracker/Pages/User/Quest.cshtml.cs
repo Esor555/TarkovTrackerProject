@@ -31,12 +31,6 @@ public class QuestsModel : PageModel
 			QuestId = questId,
 			Status = newStatus
 		});
-
-		if (!updated)
-		{
-			// Optionally handle failure
-		}
-
-		return RedirectToPage(); // Reload the page with updated data
+        return RedirectToPage(); 
 	}
 }

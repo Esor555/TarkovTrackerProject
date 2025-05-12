@@ -9,7 +9,6 @@ namespace TarkovTracker.Pages
     {
         public void OnGet()
         {
-            // Only shows the confirmation UI
         }
 
         public async Task<IActionResult> OnPostAsync()
