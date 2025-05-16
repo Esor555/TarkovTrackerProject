@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TTBusinesLogic.BusinesLogic;
-using TTBusinesLogic.DTO;
+using TarkovTrackerBLL.DTO;
+using TarkovTrackerBLL.Service;
+using TarkovTrackerBLL.Service;
 
 
 namespace TarkovTracker.Pages.Hideout

@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data;
 using System.Security.Claims;
-using TTBusinesLogic.BusinesLogic;
-using TTBusinesLogic.DTO;
+using TarkovTrackerBLL.DTO;
+using TarkovTrackerBLL.Service;
 
 namespace TarkovTracker.Pages
 {

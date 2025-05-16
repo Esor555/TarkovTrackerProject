@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
-using TTBusinesLogic.BusinesLogic;
-using TTBusinesLogic.DAL;
-using TTBusinesLogic.Interfaces;
+using TarkovTrackerBLL.Service;
+using TarkovTrackerDAL.Interfaces;
+using TarkovTrackerDAL.test;
+
 
 var builder = WebApplication.CreateBuilder(args);
 

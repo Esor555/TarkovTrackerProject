@@ -1,8 +1,9 @@
 ﻿using System.Security.Claims;
+using BaseObjects.BaseObject;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TTBusinesLogic.BusinesLogic;
-using TTBusinesLogic.Interfaces;
+using TarkovTrackerBLL.Service;
+
 
 public class QuestsModel : PageModel
 {

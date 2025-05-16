@@ -1,14 +1,15 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TTBusinesLogic.BusinesLogic;
-using TTBusinesLogic.DAL;
-using TTBusinesLogic.DTO;
-using TTBusinesLogic.enums;
-using TTBusinesLogic.BusinesLogic;
+
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
+using BaseObjects.ennums;
+using TarkovTrackerBLL.DTO;
+using TarkovTrackerBLL.Service;
+using TarkovTrackerDAL.Services;
+using TarkovTrackerDAL.test;
 
 namespace TarkovTracker.Pages
 {
@@ -16,7 +17,7 @@ namespace TarkovTracker.Pages
     {
         private readonly UserService _userService;
 
-        public List<TTBusinesLogic.BusinesLogic.User> Users { get; set; } = new();
+        public List<BaseObjects.BaseObject.User> Users { get; set; } = new();
 
         [BindProperty] public UserDTO UserDto { get; set; }
 
@@ -36,7 +37,7 @@ namespace TarkovTracker.Pages
                 return Page();
             }
 
-            var newUser = new TTBusinesLogic.BusinesLogic.User()
+            var newUser = new BaseObjects.BaseObject.User()
             {
                 Name = UserDto.Username,
                 Level = (int)UserDto.Level,

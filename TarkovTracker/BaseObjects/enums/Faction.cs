@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TarkovTrackerBLL.DTO
+namespace BaseObjects.ennums
 {
-    public class HideoutDTO
+    public enum Faction
     {
-        public int id;
-        public string name;
+        USEC = 1,
+        BEAR = 2
     }
 }

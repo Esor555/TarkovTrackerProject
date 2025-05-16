@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using BaseObjects.BaseObject;
 
 
-namespace TarkovTrackerBLL.Service
+namespace TarkovTrackerDAL.Interfaces
 {
-    public interface IUserQuestService
+    public interface IUserQuestRepository
     {
-        List<UserQuest> GetAllUserQuests(int userId);
+        List<UserQuest> getall(int userId);
         bool Add(UserQuest userQuest);
         bool Remove(int userId, int questId);
         bool Update(UserQuest userQuest);

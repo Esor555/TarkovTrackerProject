@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
-using TTBusinesLogic.BusinesLogic;
-using TTBusinesLogic.DAL;
+
 
 namespace tarkovTest
 {

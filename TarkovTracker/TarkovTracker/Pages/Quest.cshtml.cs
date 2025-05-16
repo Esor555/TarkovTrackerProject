@@ -1,9 +1,10 @@
 using System.Security.Claims;
+using BaseObjects.BaseObject;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TTBusinesLogic.BusinesLogic;
-using TTBusinesLogic.DAL;
-using TTBusinesLogic.Interfaces;
+using TarkovTrackerBLL.Service;
+using TarkovTrackerDAL.test;
+
 namespace TarkovTracker.Pages.quest{
 public class IndexModel : PageModel
 {

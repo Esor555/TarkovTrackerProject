@@ -4,17 +4,18 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TTBusinesLogic.BusinesLogic;
-using TTBusinesLogic.enums;
+using BaseObjects.ennums;
 
-namespace TTBusinesLogic.DTO
+using TarkovTrackerBLL.Service;
+
+namespace TarkovTrackerBLL.DTO
 {
     public class UserDTO
     {
         public int? Id { get; set; }
         public string Username { get; set; }
         public int? Level { get; set; }
-       
+
         public Faction? Faction { get; set; }
         public string password { get; set; }
         public string? role { get; set; }
