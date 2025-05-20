@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BaseObjects.BaseObject;
+using BaseObjects.DTO;
 
 
 namespace TarkovTrackerDAL.Interfaces
@@ -13,9 +14,9 @@ namespace TarkovTrackerDAL.Interfaces
         List<User> GetAll();
         User GetByName(string userName);
         User GetById(int id);
-        bool Add(User user);
+        bool Add(UserDTO user);
         bool Delete(int id);
-        bool Update(User user);
+        bool Update(UserDTO user);
 
     }
 }

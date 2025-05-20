@@ -10,6 +10,7 @@ using TarkovTrackerDAL;
 using TarkovTrackerBLL.Service;
 using TarkovTrackerDAL.Interfaces;
 using TarkovTrackerDAL.test;
+using BaseObjects.DTO;
 
 namespace TarkovTrackerDAL.Services
 {
@@ -129,17 +130,17 @@ namespace TarkovTrackerDAL.Services
             return user;
         }
 
-        public bool Add(User user)
+        public bool Add(UserDTO user)
         {
             string query = "INSERT INTO user_data (username, level, password_hash, role, faction) VALUES (@username, @level, @passwordhash, @role, @faction)";
 
             using (SqlConnection conn = CreateConnection())
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
-                cmd.Parameters.AddWithValue("@username", user.Name);
+                cmd.Parameters.AddWithValue("@username", user.Username);
                 cmd.Parameters.AddWithValue("@level", user.Level);
-                cmd.Parameters.AddWithValue("@passwordhash", password(user.PasswordHash));
-                cmd.Parameters.AddWithValue("@role", user.Role);
+                cmd.Parameters.AddWithValue("@passwordhash", user.passwordhash);
+                cmd.Parameters.AddWithValue("@role", user.role);
                 cmd.Parameters.AddWithValue("@faction", user.Faction);
 
                 try
@@ -187,14 +188,14 @@ namespace TarkovTrackerDAL.Services
             }
         }
 
-        public bool Update(User user)
+        public bool Update(UserDTO user)
         {
             string query = "UPDATE user_data SET username = @username, level = @level, faction = @faction WHERE id = @id";
 
             using (SqlConnection conn = CreateConnection())
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
-                cmd.Parameters.AddWithValue("@username", user.Name);
+                cmd.Parameters.AddWithValue("@username", user.Username);
                 cmd.Parameters.AddWithValue("@level", user.Level);
                 cmd.Parameters.AddWithValue("@faction", user.Faction);
                 cmd.Parameters.AddWithValue("@id", user.Id);

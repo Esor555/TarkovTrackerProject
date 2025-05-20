@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BaseObjects.BaseObject;
+using BaseObjects.DTO;
 using TarkovTrackerBLL.DTO;
 using TarkovTrackerDAL.Services;
 using TarkovTrackerDAL.test;
-using UserDTO = TarkovTrackerBLL.DTObtd.UserDTO;
+using UserDTO = BaseObjects.DTO.UserDTO;
 
 
 namespace TarkovTrackerBLL.Service
@@ -65,7 +66,9 @@ namespace TarkovTrackerBLL.Service
 
         public bool AddUser(User user)
         {
-	        DTObtd.UserDTO userdto = new UserDTO();
+
+			UserDTO userDTO = new UserDTO(user.Id, user.Name, user.Level, user.Faction, PasswordHasher.HashPassword(user.PasswordHash),user.Role);
+			
             if (string.IsNullOrWhiteSpace(user.Name))
                 throw new ArgumentException("Username is required");
 
@@ -74,7 +77,7 @@ namespace TarkovTrackerBLL.Service
 
             try
             {
-                return _userRepository.Add(userdto);
+                return _userRepository.Add(userDTO);
             }
             catch (Exception ex)
             {
@@ -99,12 +102,13 @@ namespace TarkovTrackerBLL.Service
 
         public bool UpdateUser(User user)
         {
-            if (user.Id <= 0)
+	        UserDTO userDTO = new UserDTO(user.Id, user.Name, user.Level, user.Faction, PasswordHasher.HashPassword(user.PasswordHash), user.Role);
+			if (user.Id <= 0)
                 throw new ArgumentException("Invalid user ID");
 
             try
             {
-                return _userRepository.Update(user);
+                return _userRepository.Update(userDTO);
             }
             catch (Exception ex)
             {

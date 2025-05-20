@@ -6,12 +6,14 @@ using System.Data;
 using System.Security.Claims;
 using TarkovTrackerBLL.DTO;
 using TarkovTrackerBLL.Service;
+using TarkovTrackerBLL.Tasks;
 
 namespace TarkovTracker.Pages
 {
     public class LoginModel : PageModel
     {
         private readonly UserService _userService;
+        private readonly Login login;
 
         [BindProperty] public UserDTO UserDto { get; set; } = new();
 
@@ -30,33 +32,23 @@ namespace TarkovTracker.Pages
                 return Page();
             }
 
-            var user = _userService.GetByName(UserDto.Username);
-            if (user == null || !BCrypt.Net.BCrypt.Verify(UserDto.password, user.PasswordHash))
-            {
-                ErrorMessage = "Invalid username or password.";
-                return Page();
-            }
+			if(login.LoginValidator(UserDto.Username)){
+				var claims = new List<Claim>
+				{
+					new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+					new Claim(ClaimTypes.Name, user.Name),
+					new Claim(ClaimTypes.Role, user.Role ?? "User")
+				};
 
+				var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+				var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
 
-            if (string.IsNullOrEmpty(user.Name) || user.Id == 0)
-            {
-                ErrorMessage = "Invalid user data.";
-                return Page();
-            }
+				await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal);
 
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.Name),
-                new Claim(ClaimTypes.Role, user.Role ?? "User")
-            };
+				return RedirectToPage("Index");
+			}   
 
-            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-            var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
-
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal);
-
-            return RedirectToPage("Index");
+         
         }
     }
 }
