@@ -10,45 +10,48 @@ using TarkovTrackerBLL.Tasks;
 
 namespace TarkovTracker.Pages
 {
-    public class LoginModel : PageModel
-    {
-        private readonly UserService _userService;
-        private readonly Login login;
-
-        [BindProperty] public UserDTO UserDto { get; set; } = new();
-
-        public string ErrorMessage { get; set; }
-
-        public LoginModel(IConfiguration configuration)
+        public class LoginModel : PageModel
         {
-            string connectionString = configuration["ConnectionStrings:1"];
-            _userService = new UserService(connectionString);
-        }
+            private readonly TaskLogin _taskLogin;
 
-        public async Task<IActionResult> OnPost()
-        {
-            if (!ModelState.IsValid)
+            [BindProperty] public UserDTO UserDto { get; set; } = new();
+
+            public string ErrorMessage { get; set; }
+
+            public LoginModel(IConfiguration configuration)
             {
-                return Page();
+                string connectionString = configuration["ConnectionStrings:1"];
+            _taskLogin = new TaskLogin(connectionString);
             }
 
-			if(login.LoginValidator(UserDto.Username)){
-				var claims = new List<Claim>
-				{
-					new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-					new Claim(ClaimTypes.Name, user.Name),
-					new Claim(ClaimTypes.Role, user.Role ?? "User")
-				};
+            public async Task<IActionResult> OnPost()
+            {
+                if (!ModelState.IsValid)
+                {
+                    return Page();
+                }
 
-				var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-				var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+                var user = _taskLogin.AuthenticateUser(UserDto.Username, UserDto.password);
 
-				await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal);
+                if (user == null)
+                {
+                    ErrorMessage = "Invalid username or password.";
+                    return Page();
+                }
 
-				return RedirectToPage("Index");
-			}   
+                var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Name, user.Name),
+                new Claim(ClaimTypes.Role, user.Role ?? "User")
+            };
 
-         
+                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal);
+
+                return RedirectToPage("Index");
+            }
         }
     }
-}
