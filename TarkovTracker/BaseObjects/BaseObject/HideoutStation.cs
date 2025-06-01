@@ -1,4 +1,4 @@
-﻿namespace TarkovTrackerBLL.Service
+﻿namespace BaseObjects.BaseObject
 {
 
     public class HideoutStation

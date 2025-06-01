@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BaseObjects.BaseObject;
 using BaseObjects.DTO;
 using TarkovTrackerBLL.DTO;
+using TarkovTrackerBLL.Validators;
 using TarkovTrackerDAL.Services;
 using TarkovTrackerDAL.test;
 using UserDTO = BaseObjects.DTO.UserDTO;
@@ -113,6 +114,50 @@ namespace TarkovTrackerBLL.Service
             catch (Exception ex)
             {
                 throw new ApplicationException("Error updating user", ex);
+            }
+        }
+        public RegisterUserDTO RegisterUser(User user)
+        {
+            var validator = new UserValidator();
+            var validationResult = validator.Validate(user);
+
+            if (!validationResult.IsValid)
+            {
+                return new RegisterUserDTO
+                {
+                    Success = false,
+                    Errors = validationResult.Errors
+                };
+            }
+
+            var userDTO = new UserDTO(user.Id, user.Name, user.Level, user.Faction, PasswordHasher.HashPassword(user.PasswordHash), user.Role);
+
+            try
+            {
+                bool success = _userRepository.Add(userDTO);
+           
+               if (_userRepository.GetByName(userDTO.Username) != null) 
+                  {
+                    return new RegisterUserDTO
+                    {
+                        Success = success,
+                        Errors = new List<string> { "A user with this name already exist" }
+                    };
+                    }
+            
+                return new RegisterUserDTO
+                {
+                    Success = success,
+                    Errors = success ? new List<string>() : new List<string> { "Failed to add user to database." }
+                };
+            }
+            catch (Exception ex)
+            {
+                return new RegisterUserDTO
+                {
+                    Success = false,
+                    Errors = new List<string> { ex.Message }
+                };
             }
         }
     }

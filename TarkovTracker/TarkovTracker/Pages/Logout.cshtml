@@ -1,19 +1,26 @@
 ﻿@page
 @model TarkovTracker.Pages.LogoutModel
+
 @{
-	ViewData["Title"] = "Tarkov Tracker";
-	if (User.Identity.IsAuthenticated) Layout = "_LoggedInLayout";
-	else Layout = "_Layout";
-	var user = User;
-	ViewData["playername"] = user.Identity.IsAuthenticated ? user.Identity.Name : "Guest"; ;
-	ViewData["role"] = user.IsInRole("admin") ? "admin" : "user";
+    ViewData["Title"] = "Tarkov Tracker";
+    Layout = User.Identity.IsAuthenticated ? "_LoggedInLayout" : "_Layout";
+    ViewData["playername"] = User.Identity.IsAuthenticated ? User.Identity.Name : "Guest";
+    ViewData["role"] = User.IsInRole("admin") ? "admin" : "user";
 }
 
-<h2>Confirm Logout</h2>
+<h2 class="mb-4">Confirm Logout</h2>
 
-<p>Are you sure you want to log out?</p>
+<p class="lead">Are you sure you want to log out?</p>
 
-<form method="post">
-    <button type="submit" class="btn btn-danger">Yes, Log Out</button>
+<form method="post" onsubmit="return confirmLogout();">
+    <button type="submit" class="btn btn-danger me-2">Yes, Log Out</button>
     <a asp-page="/Index" class="btn btn-secondary">Cancel</a>
 </form>
+
+@section Scripts {
+    <script>
+        function confirmLogout() {
+            return confirm('Are you absolutely sure you want to log out?');
+        }
+    </script>
+}

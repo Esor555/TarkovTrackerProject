@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TarkovTrackerDAL.Interfaces;
 using TarkovTrackerBLL.Service;
+using BaseObjects.BaseObject;
 namespace TarkovTrackerDAL.test
 {
     public class HideoutStationRepository : IhideoutstationRepository
@@ -129,5 +130,9 @@ namespace TarkovTrackerDAL.test
                 return command.ExecuteNonQuery() > 0;
             }
         }
+
+      
+
+      
     }
 }

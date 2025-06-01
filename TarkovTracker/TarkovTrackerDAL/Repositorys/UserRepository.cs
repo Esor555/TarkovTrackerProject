@@ -87,7 +87,7 @@ namespace TarkovTrackerDAL.Services
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error in GetById: " + ex.Message);
+                    Console.WriteLine("Error in GetByName: " + ex.Message);
                 }
             }
 

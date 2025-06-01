@@ -1,32 +1,38 @@
 ﻿@page
 @using TarkovTracker.Pages.Shared
-@model TarkovTracker.Pages.LoginModel
 @using Microsoft.AspNetCore.Authentication
 @using Microsoft.AspNetCore.Http
 @using System.Security.Claims
+@model TarkovTracker.Pages.LoginModel
+
 @{
 	ViewData["Title"] = "Tarkov Tracker";
-	if (User.Identity.IsAuthenticated) Layout = "_LoggedInLayout";
-	else Layout = "_Layout";
-	var user = User;
-	ViewData["playername"] = user.Identity.IsAuthenticated ? user.Identity.Name : "Guest"; ;
-	ViewData["role"] = user.IsInRole("admin") ? "admin" : "user";
+	Layout = User.Identity.IsAuthenticated ? "_LoggedInLayout" : "_Layout";
+	ViewData["playername"] = User.Identity.IsAuthenticated ? User.Identity.Name : "Guest";
+	ViewData["role"] = User.IsInRole("admin") ? "admin" : "user";
 }
-<h2>Login</h2>
 
-<form method="post">
-	<input type="text" asp-for="UserDto.Username" placeholder="Username" />
-	<span asp-validation-for="UserDto.Username" class="text-danger"></span>
+<h2 class="mb-4">Login</h2>
 
-	<input type="password" asp-for="UserDto.password" placeholder="Password" />
-	<span asp-validation-for="UserDto.password" class="text-danger"></span>
+<form method="post" class="form-group w-50">
+	<div class="mb-3">
+		<label asp-for="UserDto.Username" class="form-label">Username</label>
+		<input asp-for="UserDto.Username" class="form-control" placeholder="Enter your username" />
+		<span asp-validation-for="UserDto.Username" class="text-danger"></span>
+	</div>
 
-	<input type="submit" value="Login" />
+	<div class="mb-3">
+		<label asp-for="UserDto.passwordhash" class="form-label">Password</label>
+		<input asp-for="UserDto.passwordhash" class="form-control" placeholder="Enter your password" type="password" />
+		<span asp-validation-for="UserDto.passwordhash" class="text-danger"></span>
+	</div>
+
+	<button type="submit" class="btn btn-primary">Login</button>
 </form>
 
 @if (!string.IsNullOrEmpty(Model.ErrorMessage))
 {
-	<p class="text-danger">@Model.ErrorMessage</p>
+	<div class="alert alert-danger mt-3">@Html.Raw(Model.ErrorMessage)</div>
 }
 
 @section Scripts {

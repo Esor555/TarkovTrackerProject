@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TarkovTrackerBLL.Service;
+using TarkovTrackerBLL.Validators;
 
 namespace TarkovTrackerBLL.Tasks
 {
@@ -18,22 +19,37 @@ namespace TarkovTrackerBLL.Tasks
             _userService = new UserService(connectionString);
         }
 
-        public User? AuthenticateUser(string username, string password)
+        public LoginResult Authenticate(UserDTO dto)
         {
-            var user = _userService.GetByName(username);
+            var validator = new LoginValidator();
+            var validation = validator.Validate(dto);
 
-            if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.PasswordHash))
-                return null;
+            if (!validation.IsValid)
+            {
+                return new LoginResult
+                {
+                    Success = false,
+                    Errors = validation.Errors
+                };
+            }
 
-            if (string.IsNullOrEmpty(user.Name) || user.Id == 0)
-                return null;
+            var user = _userService.GetByName(dto.Username);
+            if (user == null || !PasswordHasher.VerifyPassword(dto.passwordhash, user.PasswordHash))
+            {
+                return new LoginResult
+                {
+                    Success = false,
+                    Errors = new List<string> { "Invalid username or password." }
+                };
+            }
 
-            return user;
+            return new LoginResult
+            {
+                Success = true,
+                User = user
+            };
         }
-        
     }
-    public class UserRole
-    {
-        
-    }
+
 }
+
