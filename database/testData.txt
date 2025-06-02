@@ -1,0 +1,77 @@
+-- Insert data into user_data table
+INSERT INTO user_data (username, password_hash, level, role)
+VALUES 
+('player1', 'hashed_password_123', 5, 'user'),
+('player2', 'hashed_password_456', 10, 'user'),
+('admin1', 'hashed_password_789', 20, 'admin');
+
+-- Insert data into trader table
+INSERT INTO trader (name, description)
+VALUES 
+('Prapor', 'Weapons trader, supplies items for survival'),
+('Therapist', 'Doctor who specializes in health supplies'),
+('Fence', 'Sells various stolen goods, not too picky on the source');
+
+-- Insert data into quest table
+INSERT INTO quest (title, description, required_level, trader_id, wiki_link)
+VALUES
+('The Hunt Begins', 'A beginner quest to start getting basic supplies', 1, 1, 'http://tarkovwiki.com/quest_1'),
+('Basic Med Supplies', 'A quest to gather medical supplies for the Therapist', 2, 2, 'http://tarkovwiki.com/quest_2'),
+('Breaking the Ice', 'Test quest to help gain reputation and experience', 3, 3, 'http://tarkovwiki.com/quest_3');
+
+-- Insert data into user_quest table
+INSERT INTO user_quest (user_id, quest_id, status)
+VALUES
+(1, 1, 'NotStarted'),
+(1, 2, 'InProgress'),
+(2, 3, 'Completed');
+
+-- Insert data into item table
+INSERT INTO item (name, type)
+VALUES
+('AK-47', 'Weapon'),
+('Bandage', 'MedKit'),
+('Water Bottle', 'Food/Drink'),
+('Gunpowder', 'Crafting Material');
+
+-- Insert data into quest_required_item table
+INSERT INTO quest_required_item (quest_id, item_id, amount)
+VALUES
+(1, 1, 1),  -- The Hunt Begins requires 1 AK-47
+(2, 2, 5),  -- Basic Med Supplies requires 5 Bandages
+(3, 3, 2);  -- Breaking the Ice requires 2 Water Bottles
+
+-- Insert data into user_quest_item_progress table
+INSERT INTO user_quest_item_progress (user_id, quest_id, item_id, amount_collected)
+VALUES
+(1, 1, 1, 1),  -- Player 1 has collected 1 AK-47 for The Hunt Begins
+(1, 2, 2, 3),  -- Player 1 has collected 3 Bandages for Basic Med Supplies
+(2, 3, 3, 2);  -- Player 2 has completed collecting 2 Water Bottles for Breaking the Ice
+
+-- Insert data into quest_rewards table
+INSERT INTO quest_rewards (quest_id, experience, money, reputation, items)
+VALUES
+(1, 500, 1000, 10.0, '["AK-47"]'),  -- The Hunt Begins rewards 500 XP, 1000 money, and 10 rep
+(2, 300, 500, 5.0, '["Bandage", "Water Bottle"]'),  -- Basic Med Supplies rewards 300 XP, 500 money, and 5 rep
+(3, 1000, 2000, 15.0, '["Water Bottle"]');  -- Breaking the Ice rewards 1000 XP, 2000 money, and 15 rep
+
+-- Insert data into hideout_station table
+INSERT INTO hideout_station (name)
+VALUES
+('Workbench'),
+('Medical Station'),
+('Generator');
+
+-- Insert data into hideout_station_upgrade table
+INSERT INTO hideout_station_upgrade (station_id, item_id, amount, required_level)
+VALUES
+(1, 4, 10, 3),  -- Workbench requires 10 Gunpowder to upgrade to level 3
+(2, 2, 5, 2),   -- Medical Station requires 5 Bandages to upgrade to level 2
+(3, 1, 20, 5);  -- Generator requires 20 AK-47s to upgrade to level 5
+
+-- Insert data into user_hideout table
+INSERT INTO user_hideout (user_id, station_id, station_level)
+VALUES
+(1, 1, 2),  -- Player 1 has Workbench at level 2
+(2, 2, 1),  -- Player 2 has Medical Station at level 1
+(3, 3, 5);  -- Admin has Generator at level 5

@@ -39,10 +39,7 @@ namespace TarkovTrackerBLL.Validators
                 result.AddError("Valid Trader ID is required.");
             }
 
-            if (!string.IsNullOrWhiteSpace(quest.WikiLink) && !Uri.IsWellFormedUriString(quest.WikiLink, UriKind.Absolute))
-            {
-                result.AddError("Wiki link is not a valid URL.");
-            }
+          
 
             return result;
         }

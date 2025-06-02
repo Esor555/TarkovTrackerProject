@@ -25,8 +25,8 @@ namespace BaseObjects.BaseObject
         private int traderId;
         public int TraderId { get => traderId; set => traderId = value; }
 
-        private string wikiLink;
-        public string WikiLink { get => wikiLink; set => wikiLink = value; }
+        private string? wikiLink;
+        public string? WikiLink { get => wikiLink; set => wikiLink = value; }
 
         public Quest(int id, string title, string description, int requiredLevel, int? previousQuestId, int traderId, string wikiLink)
         {

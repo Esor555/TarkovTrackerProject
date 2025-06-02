@@ -3,49 +3,63 @@ using BaseObjects.BaseObject;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using TarkovTrackerBLL.Service;
+using TarkovTrackerBLL.Validators;
 using TarkovTrackerDAL.test;
 
 namespace TarkovTracker.Pages.quest{
 public class IndexModel : PageModel
 {
-	private readonly QuestService _questService;
-	private readonly IUserQuestService _userQuestService;
+    private readonly QuestService _questService;
+    private readonly IUserQuestService _userQuestService;
+    private readonly QuestValidator _questValidator;
 
-	public IndexModel(IConfiguration config)
-	{
-		string connStr = config.GetConnectionString("1");
-		_questService = new QuestService(connStr);
-		_userQuestService = new UserQuestService(new UserQuestRepository(connStr));
-	}
+    public IndexModel(IConfiguration config)
+    {
+        string connStr = config.GetConnectionString("1");
+        _questService = new QuestService(connStr);
+        _userQuestService = new UserQuestService(new UserQuestRepository(connStr));
+        _questValidator = new QuestValidator();
+    }
 
-	public List<Quest> Quests { get; set; }
-	public List<UserQuest> UserQuests { get; set; }
+    [BindProperty]
+    public Quest NewQuest { get; set; }
 
-	[BindProperty]
-	public Quest NewQuest { get; set; }
+    public List<Quest> Quests { get; set; }
+    public List<UserQuest> UserQuests { get; set; }
 
-	public void OnGet()
-	{
-		int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
-		Quests = _questService.GetAllQuests();
-		UserQuests = _userQuestService.GetAllUserQuests(userId)
-			.Where(q => q.Status == "InProgress")
-			.ToList();
-	}
+    public void OnGet()
+    {
+        int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+        Quests = _questService.GetAllQuests();
+        UserQuests = _userQuestService.GetAllUserQuests(userId)
+            .Where(q => q.Status == "InProgress")
+            .ToList();
+    }
 
-	public IActionResult OnPostAdd()
-	{
-		if (!ModelState.IsValid || NewQuest == null)
-		{
-			OnGet();
-			return Page();
-		}
+    public IActionResult OnPostAdd()
+    {
+        if (!ModelState.IsValid || NewQuest == null)
+        {
+            OnGet();
+            return Page();
+        }
 
-		_questService.AddQuest(NewQuest);
-		return RedirectToPage();
-	}
+        var validationResult = _questValidator.Validate(NewQuest);
+        if (!validationResult.IsValid)
+        {
+            foreach (var error in validationResult.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error);
+            }
+            OnGet();
+            return Page();
+        }
 
-	public IActionResult OnPostDelete(int id)
+        _questService.AddQuest(NewQuest);
+        return RedirectToPage();
+    }
+
+        public IActionResult OnPostDelete(int id)
 	{
 		_questService.DeleteQuest(id);
 		return RedirectToPage();

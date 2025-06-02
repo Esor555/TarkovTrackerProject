@@ -1,0 +1,49 @@
+﻿@page "{id:int}"
+@model TarkovTracker.Pages.QuestDetailModel
+
+@{
+	ViewData["Title"] = "Quest Details - " + Model.Quest?.Title ?? "Quest Details";
+}
+
+<h2>@Model.Quest.Title</h2>
+
+<div class="mb-3">
+	<strong>Description:</strong>
+	<p>@(string.IsNullOrWhiteSpace(Model.Quest.Description) ? "No description available." : Model.Quest.Description)</p>
+</div>
+
+<div class="mb-3">
+	<strong>Required Level:</strong> @Model.Quest.RequiredLevel
+</div>
+
+<div class="mb-3">
+	<strong>Previous Quest:</strong>
+	@if (Model.PreviousQuest != null)
+	{
+		<a asp-page="/QuestDetail" asp-route-id="@Model.PreviousQuest.Id">
+			@Model.PreviousQuest.Title
+		</a>
+	}
+	else
+	{
+		<span>-</span>
+	}
+</div>
+
+<div class="mb-3">
+	<strong>Trader ID:</strong> @Model.Quest.TraderId
+</div>
+
+<div class="mb-3">
+	<strong>Wiki Link:</strong>
+	@if (!string.IsNullOrWhiteSpace(Model.Quest.WikiLink))
+	{
+		<a href="@Model.Quest.WikiLink" target="_blank" rel="noopener noreferrer">View Wiki</a>
+	}
+	else
+	{
+		<span>-</span>
+	}
+</div>
+
+<a asp-page="/quest" class="btn btn-secondary">Back to Quests List</a>

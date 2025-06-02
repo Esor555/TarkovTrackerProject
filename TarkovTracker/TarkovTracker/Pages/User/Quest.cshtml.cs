@@ -4,34 +4,27 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using TarkovTrackerBLL.Service;
 
-
 public class QuestsModel : PageModel
 {
-	private readonly IUserQuestService _userQuestService;
+    private readonly UserQuestPageService _pageService;
 
-	public List<UserQuest> UserQuests { get; set; }
+    public List<UserQuest> UserQuests { get; set; }
 
-	public QuestsModel(IUserQuestService userQuestService)
-	{
-		_userQuestService = userQuestService;
-	}
+    public QuestsModel(UserQuestPageService pageService)
+    {
+        _pageService = pageService;
+    }
 
-	public void OnGet()
-	{
-		int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
-		UserQuests = _userQuestService.GetAllUserQuests(userId);
-	}
+    public void OnGet()
+    {
+        int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+        UserQuests = _pageService.GetUserQuests(userId);
+    }
 
-	public IActionResult OnPostUpdateStatus(int questId, string newStatus)
-	{
-		int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
-
-		var updated = _userQuestService.Update(new UserQuest()
-		{
-			UserId = userId,
-			QuestId = questId,
-			Status = newStatus
-		});
-        return RedirectToPage(); 
-	}
+    public IActionResult OnPostUpdateStatus(int questId, string newStatus)
+    {
+        int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+        _pageService.UpdateQuestStatus(userId, questId, newStatus);
+        return RedirectToPage();
+    }
 }

@@ -1,45 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BaseObjects.BaseObject;
-using static TarkovTrackerBLL.Service.UserQuestService;
-
+﻿using BaseObjects.BaseObject;
+using TarkovTrackerBLL.Service;
 using TarkovTrackerDAL.Interfaces;
 
-namespace TarkovTrackerBLL.Service
+public class UserQuestService : IUserQuestService
 {
-    public class UserQuestService : IUserQuestService
+    public IUserQuestRepository _IuserQuestRepository;
+
+    public UserQuestService(IUserQuestRepository IuserQuestRepository)
     {
-        public IUserQuestRepository _IuserQuestRepository;
+        _IuserQuestRepository = IuserQuestRepository;
+    }
 
-        public UserQuestService(IUserQuestRepository IuserQuestRepository)
-        {
-            _IuserQuestRepository = IuserQuestRepository;
-        }
+    public bool Add(UserQuest userQuest)
+    {
+        return _IuserQuestRepository.Add(userQuest);
+    }
 
-        public bool Add(UserQuest userQuest)
-        {
+    public List<UserQuest> GetAllUserQuests(int userId)
+    {
+        return _IuserQuestRepository.getall(userId);
+    }
 
-            return _IuserQuestRepository.Add(userQuest);
-        }
+    public bool Remove(int userId, int questId)
+    {
+        return _IuserQuestRepository.Remove(userId, questId);
+    }
 
-        public List<UserQuest> GetAllUserQuests(int userId)
-        {
-            return _IuserQuestRepository.getall(userId);
-        }
-
-
-
-        public bool Remove(int userId, int questId)
-        {
-            return _IuserQuestRepository.Remove(userId, questId);
-        }
-
-        public bool Update(UserQuest userQuest)
-        {
-            return _IuserQuestRepository.Update(userQuest);
-        }
+    public bool Update(UserQuest userQuest)
+    {
+        return _IuserQuestRepository.Update(userQuest);
     }
 }

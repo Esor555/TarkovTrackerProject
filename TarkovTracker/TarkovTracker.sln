@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tarkovTest", "tarkovTest\ta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TarkovTrackerDAL", "TarkovTrackerDAL\TarkovTrackerDAL.csproj", "{87C03395-32D5-4934-9AC3-8CDD5C77DBA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseObjects", "BaseObjects\BaseObjects.csproj", "{C39F4CA9-1AA6-40AF-9479-19B45DAF4FFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseObjects", "BaseObjects\BaseObjects.csproj", "{C39F4CA9-1AA6-40AF-9479-19B45DAF4FFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
