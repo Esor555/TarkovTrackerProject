@@ -1,140 +1,293 @@
 classDiagram
-    class IuserRepository{
-        +GetAll() : List~User~
-        +Add(User user)
-        +GetById(int id): User
-        +Delete(int id)
-    }
-        class IHideoutRepository{
-        +GetAll() : List~Hideout~
-        +Add(Hideout hideout)
-        +GetById(int id): Hideout
-        +Delete(int id)
-    }
-        class ITaskRepository{
-        +GetAll() : List~Task~
-        +Add(Task task)
-        +GetById(int id): Task
-        +Delete(int id)
-    }
-    class IService~T~ {
-        +GetAll(): List~T~
-        +Add(T item)
-        +Remove(int id)
-    }
+direction LR
 
-
-
-    class Program{
-        +Main()
-    }
-    
     class User {
-        - id: int
-        - name: string
-        - level: int
-        - faction: Faction
+        +Id : int
+        +Name : string
+        +PasswordHash : string
+        +Level : int
+        +Role : string
+        +Faction : Faction
+        +CreatedAt : DateTime
+        +User(int id, string name, string passwordHash, int level, string role, Faction faction, DateTime createdAt)
+    }
+
+    class Quest {
+        +Id : int
+        +Title : string
+        +Description : string
+        +RequiredLevel : int
+        +PreviousQuestId : int?
+        +TraderId : int
+        +WikiLink : string
+        +Quest(int id, string title, string description, int requiredLevel, int? previousQuestId, int traderId, string wikiLink)
+    }
+
+    class Item {
+        +Id : int
+        +Name : string
+        +Type : string
+        +Item(int id, string name, string type)
+    }
+
+    class Trader {
+        +Id : int
+        +Name : string
+        +Description : string
+        +Trader(int id, string name, string description)
+    }
+
+    class UserQuest {
+        +UserId : int
+        +QuestId : int
+        +Status : string
+        +Quest : Quest
+        +UserQuest(int userId, int questId, string status)
+    }
+
+    class UserQuestItemProgress {
+        +UserId : int
+        +QuestId : int
+        +ItemId : int
+        +AmountCollected : int
+        +UserQuestItemProgress(int userId, int questId, int itemId, int amountCollected)
+    }
+
+    class UserHideout {
+        +UserId : int
+        +StationId : int
+        +StationLevel : int
+        +UserHideout(int userId, int stationId, int stationLevel)
+    }
+
+    class HideoutStation {
+        +Id : int
+        +Name : string
+        +HideoutStation(int id, string name)
+    }
+
+    class HideoutStationUpgrade {
+        +StationId : int
+        +ItemId : int
+        +Amount : int
+        +RequiredLevel : int
+        +HideoutStationUpgrade(int stationId, int itemId, int amount, int requiredLevel)
+    }
+
+    class UserDTO {
+        +Id : int?
+        +Username : string
+        +Level : int?
+        +Faction : Faction?
+        +passwordhash : string
+        +role : string?
+        +UserDTO(int? id, string username, int? level, Faction? faction, string passwordhash, string? role)
+    }
+
+    class HideoutDTO {
+        +id : int
+        +name : string
+        +HideoutDTO(int id, string name)
+    }
+
+    class IQuestRepository {
+        +GetAll() : List~Quest~
+        +GetById(int id) : Quest
+        +Add(Quest quest) : bool
+        +Update(Quest quest) : bool
+        +Delete(int id) : bool
+    }
+
+    class IUserQuestRepository {
+        +getall(int userId) : List~UserQuest~
+        +Add(UserQuest userQuest) : bool
+        +Remove(int userId, int questId) : bool
+        +Update(UserQuest userQuest) : bool
+    }
+
+    class IUserRepository {
+        +GetByName(string username) : User
+        +GetAll() : List~User~
+        +GetById(int id) : User
+        +Add(UserDTO userDto) : bool
+        +Update(UserDTO userDto) : bool
+        +Delete(int id) : bool
+    }
+
+    class IhideoutstationRepository {
+        +GetAll() : List~HideoutStation~
+        +GetById(int id) : HideoutStation
+        +Add(HideoutStation station) : bool
+        +Update(HideoutStation station) : bool
+        +Delete(int id) : bool
+    }
+
+    class IhideoutstationupgradeRepository {
+        +GetAll() : List~HideoutStationUpgrade~
+        +Add(HideoutStationUpgrade upgrade) : bool
+        +Update(HideoutStationUpgrade upgrade) : bool
+        +Delete(int stationId, int itemId) : bool
+    }
+
+    class ITraderRepository {
+        +GetAll() : List~Trader~
+        +GetById(int id) : Trader
+        +Add(Trader trader) : bool
+        +Update(Trader trader) : bool
+        +Delete(int id) : bool
+    }
+
+
+    class QuestRepository {
+        +connectionString : string
+        +QuestRepository(string connectionString)
+    }
+
+    class UserQuestRepository {
+        +connectionString : string
+        +UserQuestRepository(string connectionString)
+    }
+
+    class UserRepository {
+        +connectionString : string
+        +UserRepository(string connectionString)
+    }
+
+    class HideoutStationRepository {
+        +connectionString : string
+        +HideoutStationRepository(string connectionString)
+    }
+
+    class HideoutStationUpgradeRepository {
+        +connectionString : string
+        +HideoutStationUpgradeRepository(string connectionString)
+    }
+
+    class TraderRepository {
+        +connectionString : string
+        +TraderRepository(string connectionString)
+    }
+
+    class QuestService {
+        +GetAllQuests() : List~Quest~
+        +GetQuestById(int id) : Quest
+        +GetQuestByTitle(string title) : Quest
+        +AddQuest(Quest quest) : bool
+        +UpdateQuest(Quest quest) : bool
+        +DeleteQuest(int id) : bool
+        +QuestService(string connectionString)
+    }
+
+    class UserQuestService {
+        +GetAllUserQuests(int userId) : List~UserQuest~
+        +Add(UserQuest userQuest) : bool
+        +Remove(int userId, int questId) : bool
+        +Update(UserQuest userQuest) : bool
+        +UserQuestService(IUserQuestRepository repository)
     }
 
     class UserService {
-        -UserRepository repository 
-        -UserValidator validator
-        +UpdateUserName(User user, string newName)
-        +UpdateUserLevel(User user, int newLevel)
-        +UpdateUserFaction(User user, Faction newFaction)
+        +GetByName(string username) : User
+        +GetAllUsers() : List~User~
+        +GetUserById(int id) : User
+        +AddUser(User user) : bool
+        +DeleteUser(int id) : bool
+        +UpdateUser(User user) : bool
+        +UserService(string connectionString)
     }
-    
-    class UserRepository {
-        -users: list<User>
+
+    class HideoutStationService {
+        +GetAllStations() : List~HideoutStation~
+        +GetStationById(int id) : HideoutStation
+        +AddStation(HideoutStation station) : bool
+        +UpdateStation(HideoutStation station) : bool
+        +DeleteStation(int id) : bool
+        +HideoutStationService(string connectionString)
+    }
+
+    class IValidator~T~ {
+        +Validate(T entity) : ValidationResult
+    }
+
+    class ValidationResult {
+        +IsValid : bool
+        +Errors : List~string~
+        +ValidationResult()
     }
 
     class UserValidator {
-        ~ValidateUser(User user): bool
-        ~ValidateId(int id): bool
-        ~ValidateName(string name): bool
-        ~ValidateLevel(int level): bool
-        ~ValidateFaction(Faction faction): bool
+        +UserValidator()
+        +Validate(User user) : ValidationResult
     }
 
-    class Hideout {
-        - name: string
-        - id: int
-        - level: int
-        - levelupRequirement: RequirementHideout
+    class QuestValidator {
+        +QuestValidator()
+        +Validate(Quest quest) : ValidationResult
     }
 
-    class HideoutService {
-        -HideoutRepository repository
-        -HideoutValidator validator
-        +UpgradeHideout(Hideout hideout)
+    class HideoutStationValidator {
+        +HideoutStationValidator()
+        +Validate(HideoutStation station) : ValidationResult
     }
 
-    class HideoutRepository {
-        -hideouts: list<Hideout>
+    class UserQuestValidator {
+        +UserQuestValidator()
+        +Validate(UserQuest userQuest) : ValidationResult
     }
 
-    class HideoutValidator {
-        ~ValidateHideout(Hideout hideout): bool
-        ~ValidateId(int id): bool
-        ~ValidateName(string name): bool
-        ~ValidateLevel(int level): bool
-    }
+    <<interface>> IQuestRepository
+    <<interface>> IUserQuestRepository
+    <<interface>> IUserRepository
+    <<interface>> IhideoutstationRepository
+    <<interface>> IhideoutstationupgradeRepository
+    <<interface>> ITraderRepository
+    <<interface>> IValidator
 
-    class Task {
-        - name: string
-        - id: int
-        - description: string
-        - unlockRequirements: RequirementTask
-        - completionRequirements: RequirementTask
-    }
+    IValidator <|.. UserValidator
+    IValidator <|.. QuestValidator
+    IValidator <|.. HideoutStationValidator
+    IValidator <|.. UserQuestValidator
 
-    class TaskService {
-        -TaskRepository repository
-        -TaskValidator validator
-        +CompleteTask(Task task)
-    }
-
-    class TaskRepository {
-        -tasks: list<Task>
-    }
-
-    class TaskValidator {
-        //addlater
-        ~ValidateRequirements(RequirementTask requirement)
-    }
+    IQuestRepository <|.. QuestRepository
+    IUserQuestRepository <|.. UserQuestRepository
+    IUserRepository <|.. UserRepository
+    IhideoutstationRepository <|.. HideoutStationRepository
+    IhideoutstationupgradeRepository <|.. HideoutStationUpgradeRepository
+    ITraderRepository <|.. TraderRepository
 
 
-    class Faction {
-        <<enumeration>>
-        USAC
-        BEAR
-    }
+    UserService ..> UserValidator : "uses"
+    QuestService ..> QuestValidator : "uses"
+    HideoutStationService ..> HideoutStationValidator : "uses"
+    UserQuestService ..> UserQuestValidator : "uses"
 
-    Program --> IService
-    IService <|-- UserService
-    IService <|-- HideoutService
-    IService <|-- TaskService
-  
-    UserService --> IuserRepository
-    IuserRepository <|-- UserRepository
+    UserValidator ..> ValidationResult
+    QuestValidator ..> ValidationResult
+    HideoutStationValidator ..> ValidationResult
+    UserQuestValidator ..> ValidationResult
+
+    UserQuest --> Quest : "has"
+    UserQuestItemProgress --> User : "refers to"
+    UserQuestItemProgress --> Quest : "refers to"
+    UserQuestItemProgress --> Item : "refers to"
+    UserHideout --> User : "belongs to"
+    UserHideout --> HideoutStation : "belongs to"
+    HideoutStationUpgrade --> HideoutStation : "upgrades"
+    HideoutStationUpgrade --> Item : "requires"
+    Quest --> Trader : "given by"
+    UserQuest --> User : "belongs to"
+
+    QuestService ..> IQuestRepository : "uses"
+    UserQuestService ..> IUserQuestRepository : "uses"
+    UserService ..> IUserRepository : "uses"
+    HideoutStationService ..> IhideoutstationRepository : "uses"
     
-    UserService --> UserValidator
-    UserRepository --> User
-    UserValidator -- User
-    
-    HideoutService --> IHideoutRepository
-    IHideoutRepository <|-- HideoutRepository
-    HideoutService --> HideoutValidator
-    HideoutRepository --> Hideout
-    HideoutValidator -- Hideout
 
-    TaskService --> ITaskRepository
-    ITaskRepository <|-- TaskRepository
-    TaskService --> TaskValidator
-    TaskRepository --> Task
-    TaskValidator -- Task
-
-    User --> Faction
-    User --> Task : "currentTasks"
-    User --> Hideout : "currentHideout"
-   
+    QuestService --> Quest : "returns/uses"
+    QuestService --> List~Quest~ : "returns"
+    UserQuestService --> UserQuest : "returns/uses"
+    UserQuestService --> List~UserQuest~ : "returns"
+    UserService --> User : "returns/uses"
+    UserService --> List~User~ : "returns"
+    HideoutStationService --> HideoutStation : "returns/uses"
+    HideoutStationService --> List~HideoutStation~ : "returns"
