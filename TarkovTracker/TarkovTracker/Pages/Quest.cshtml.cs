@@ -10,8 +10,9 @@ namespace TarkovTracker.Pages.quest{
 public class IndexModel : PageModel
 {
     private readonly QuestService _questService;
-    private readonly IUserQuestService _userQuestService;
+    private readonly UserQuestService _userQuestService;
     private readonly QuestValidator _questValidator;
+    private readonly TraderService _traderService;
 
     public IndexModel(IConfiguration config)
     {
@@ -19,6 +20,8 @@ public class IndexModel : PageModel
         _questService = new QuestService(connStr);
         _userQuestService = new UserQuestService(new UserQuestRepository(connStr));
         _questValidator = new QuestValidator();
+        _traderService = new TraderService(connStr);
+
     }
 
     [BindProperty]

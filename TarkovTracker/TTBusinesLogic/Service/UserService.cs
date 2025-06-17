@@ -7,6 +7,7 @@ using BaseObjects.BaseObject;
 using BaseObjects.DTO;
 using TarkovTrackerBLL.DTO;
 using TarkovTrackerBLL.Validators;
+using TarkovTrackerDAL.Interfaces;
 using TarkovTrackerDAL.Services;
 using TarkovTrackerDAL.test;
 using UserDTO = BaseObjects.DTO.UserDTO;
@@ -16,7 +17,7 @@ namespace TarkovTrackerBLL.Service
 {
     public class UserService
     {
-        private readonly UserRepository _userRepository;
+        private readonly IuserRepository _userRepository;
 
         public UserService(string connectionString)
         {
@@ -45,7 +46,6 @@ namespace TarkovTrackerBLL.Service
             }
             catch (Exception ex)
             {
-                // Optionally log
                 throw new ApplicationException("Error retrieving users", ex);
             }
         }
