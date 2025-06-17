@@ -1,15 +1,12 @@
-﻿// BLL/Service/UserQuestPageService.cs
-
-using BaseObjects.BaseObject;
-using TarkovTrackerDAL.Interfaces;
+﻿using BaseObjects.BaseObject;
 
 namespace TarkovTrackerBLL.Service
 {
     public class UserQuestPageService
     {
-        private readonly IUserQuestService _userQuestService;
+        private readonly UserQuestService _userQuestService;
 
-        public UserQuestPageService(IUserQuestService userQuestService)
+        public UserQuestPageService(UserQuestService userQuestService)
         {
             _userQuestService = userQuestService;
         }

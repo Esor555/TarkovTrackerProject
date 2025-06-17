@@ -10,7 +10,6 @@
 
 <h2 class="mb-4">Quests</h2>
 
-<!-- Add Quest Form -->
 <form method="post" class="mb-5">
     <div class="row g-3">
         <div class="col-md-6">
@@ -93,7 +92,6 @@
 	                    }
 	                    @(prevQuest != null ? prevQuest.Title : "-")
                     </td>
-
                     <td>@quest.TraderId</td>
                     <td>
                         @if (!string.IsNullOrWhiteSpace(quest.WikiLink))

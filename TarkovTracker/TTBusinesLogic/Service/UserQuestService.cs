@@ -2,7 +2,7 @@
 using TarkovTrackerBLL.Service;
 using TarkovTrackerDAL.Interfaces;
 
-public class UserQuestService : IUserQuestService
+public class UserQuestService
 {
     public IUserQuestRepository _IuserQuestRepository;
 

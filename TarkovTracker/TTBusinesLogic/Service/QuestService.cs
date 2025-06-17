@@ -19,8 +19,30 @@ namespace TarkovTrackerBLL.Service
         {
             _questRepository = new QuestRepository(connectionString);
         }
+        public List<Quest> GetAvailableStartingQuestsForUser(int userId, int userLevel, List<UserQuest> userQuests)
+        {
+            var allQuests = GetAllQuests();
 
-        public List<Quest> GetAllQuests()
+            var assignedQuestIds = userQuests
+                .Where(q => q.UserId == userId)
+                .Select(q => q.QuestId)
+                .ToHashSet();
+
+            return allQuests
+                .Where(q => q.PreviousQuestId == null &&
+                            q.RequiredLevel <= userLevel &&
+                            !assignedQuestIds.Contains(q.Id))
+                .ToList();
+        }
+        public List<Quest> GetQuestsByPreviousQuestId(int previousQuestId)
+        {
+	        return _questRepository.GetAll()
+		        .Where(q => q.PreviousQuestId == previousQuestId)
+		        .ToList();
+        }
+
+
+		public List<Quest> GetAllQuests()
         {
             return _questRepository.GetAll();
         }

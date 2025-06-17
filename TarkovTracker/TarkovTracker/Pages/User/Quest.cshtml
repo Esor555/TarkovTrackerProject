@@ -1,44 +1,87 @@
 ﻿@page
+@using BaseObjects.BaseObject
+@using Microsoft.AspNetCore.Mvc.TagHelpers
 @using TarkovTracker.Pages.Shared
 @model QuestsModel
 @{
-	ViewData["Title"] = "Your Quests";
-	Layout = "_LoggedInLayout";
+    ViewData["Title"] = "Your Quests";
+    Layout = "_LoggedInLayout";
+
+    var activeQuests = Model.UserQuests.Where(q => q.Status != "Completed").ToList();
+    var completedQuests = Model.UserQuests.Where(q => q.Status == "Completed").ToList();
+
+    string GetCardClass(UserQuest quest) =>
+        quest.Status == "Completed"
+            ? "card border-secondary shadow greyed-out-card"
+            : $"card border-{(quest.Status == "InProgress" ? "warning" : "primary")} shadow";
 }
+
+<style>
+    .greyed-out-card {
+        opacity: 0.5;
+        pointer-events: none;
+        user-select: none;
+    }
+
+        .greyed-out-card a {
+            pointer-events: none;
+            color: gray !important;
+            cursor: default;
+            text-decoration: none !important;
+        }
+</style>
+@if (TempData["SuccessMessage"] != null && TempData["SuccessMessage"].ToString().StartsWith("Quest "))
+{
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+		@TempData["SuccessMessage"]
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>
+}
+
 
 <h1>Your Quests</h1>
 
 <div class="row">
-	@foreach (var quest in Model.UserQuests)
-	{
-		var btnClass = quest.Status switch
-		{
-			"Completed" => "success",
-			"InProgress" => "warning",
-			_ => "secondary"
-		};	
+    @foreach (var quest in activeQuests.Concat(completedQuests))
+    {
+        var btnClass = quest.Status switch
+        {
+            "Completed" => "secondary",
+            "InProgress" => "warning",
+            _ => "primary"
+        };
 
-		var nextStatus = quest.Status switch
-		{
-			"NotStarted" => "InProgress",
-			"InProgress" => "Completed",
-			"Completed" => "NotStarted", // Optional: loop back
-			_ => "NotStarted"
-		};
+        var nextStatus = quest.Status switch
+        {
+            "NotStarted" => "InProgress",
+            "InProgress" => "Completed",
+            "Completed" => "Finished",
+            _ => "Finished"
+        };
 
-		<div class="col-md-4 mb-3">
-			<div class="card border-@btnClass shadow">
-				<div class="card-body">
-					<h5 class="card-title">@quest.Quest.Title</h5>
-					<span class="badge bg-@btnClass">@quest.Status</span>
-					<form method="post" asp-page-handler="UpdateStatus">
-						<input type="hidden" name="questId" value="@quest.QuestId" />
-						<input type="hidden" name="newStatus" value="@nextStatus" />
-						<button type="submit" class="btn btn-outline-@btnClass mt-2">Mark as @nextStatus</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	}
+        <div class="col-md-4 mb-3">
+            <div class="@GetCardClass(quest)">
+                <div class="card-body">
+                    <a asp-page="/questDetail" asp-route-id="@quest.QuestId" class="text-decoration-none text-primary">
+                        <h5 class="card-title">@quest.Quest.Title</h5>
+                    </a>
+                    <span class="badge bg-@btnClass">@quest.Status</span>
 
+                    <form method="post" asp-page-handler="UpdateStatus">
+                        <input type="hidden" name="questId" value="@quest.QuestId" />
+                        <input type="hidden" name="newStatus" value="@nextStatus" />
+                        @if (quest.Status != "Completed")
+                        {
+	                        <button type="submit"
+	                                class="btn btn-outline-@btnClass mt-2">
+		                        Mark as @nextStatus
+	                        </button>
+                        }
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
 </div>

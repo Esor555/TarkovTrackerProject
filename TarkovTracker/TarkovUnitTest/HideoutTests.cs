@@ -1,16 +1,15 @@
-﻿using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using BaseObjects.BaseObject;
 using TarkovTrackerBLL.Service;
 using TarkovTrackerDAL.Interfaces;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TarkovTrackerDAL.test;
+using Xunit;
 
-namespace tarkovTest
+namespace TarkovTracker.Tests
 {
-    [TestClass]
-    public sealed class Test1
+    public class HideoutTests
     {
         private class MockHideoutStationRepository : IHideoutStationRepository
         {
@@ -55,7 +54,7 @@ namespace tarkovTest
 
             public UserHideout GetByStationId(int userId, int stationId)
             {
-                return _userHideouts.FirstOrDefault(uh => 
+                return _userHideouts.FirstOrDefault(uh =>
                     uh.UserId == userId && uh.StationId == stationId);
             }
 
@@ -72,7 +71,7 @@ namespace tarkovTest
 
             public bool Update(UserHideout userHideout)
             {
-                var existingHideout = _userHideouts.FirstOrDefault(uh => 
+                var existingHideout = _userHideouts.FirstOrDefault(uh =>
                     uh.UserId == userHideout.UserId && uh.StationId == userHideout.StationId);
 
                 if (existingHideout == null)
@@ -86,7 +85,7 @@ namespace tarkovTest
 
             public bool Remove(int userId, int stationId)
             {
-                var hideout = _userHideouts.FirstOrDefault(uh => 
+                var hideout = _userHideouts.FirstOrDefault(uh =>
                     uh.UserId == userId && uh.StationId == stationId);
 
                 if (hideout == null)
@@ -98,7 +97,7 @@ namespace tarkovTest
             }
         }
 
-        [TestMethod]
+        [Fact]
         public void GetUserHideouts_ShouldReturnEmptyList_WhenUserHasNoStations()
         {
             // Arrange
@@ -112,10 +111,10 @@ namespace tarkovTest
             var result = service.GetUserHideouts(1);
 
             // Assert
-            Assert.AreEqual(0, result.Count);
+            Assert.Empty(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetAvailableStations_ShouldReturnAllStations_WhenUserHasNoStations()
         {
             // Arrange
@@ -129,10 +128,10 @@ namespace tarkovTest
             var result = service.GetAvailableStations(1);
 
             // Assert
-            Assert.AreEqual(5, result.Count);
+            Assert.Equal(5, result.Count);
         }
 
-        [TestMethod]
+        [Fact]
         public void AddStation_ShouldAddNewStation_WhenStationDoesNotExist()
         {
             // Arrange
@@ -146,13 +145,13 @@ namespace tarkovTest
             var result = service.AddStation(1, 1);
 
             // Assert
-            Assert.IsTrue(result);
+            Assert.True(result);
             var userHideouts = service.GetUserHideouts(1);
-            Assert.AreEqual(1, userHideouts.Count);
-            Assert.AreEqual(1, userHideouts[0].StationLevel);
+            Assert.Single(userHideouts);
+            Assert.Equal(1, userHideouts[0].StationLevel);
         }
 
-        [TestMethod]
+        [Fact]
         public void UpgradeStation_ShouldIncreaseLevel_WhenBelowMaxLevel()
         {
             // Arrange
@@ -169,12 +168,12 @@ namespace tarkovTest
             var result = service.UpgradeStation(1, 1);
 
             // Assert
-            Assert.IsTrue(result);
+            Assert.True(result);
             var userHideouts = service.GetUserHideouts(1);
-            Assert.AreEqual(2, userHideouts[0].StationLevel);
+            Assert.Equal(2, userHideouts[0].StationLevel);
         }
 
-        [TestMethod]
+        [Fact]
         public void CanUpgrade_ShouldReturnFalse_WhenAtMaxLevel()
         {
             // Arrange
@@ -193,10 +192,10 @@ namespace tarkovTest
             var result = service.CanUpgrade(1, 1);
 
             // Assert
-            Assert.IsFalse(result);
+            Assert.False(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void UpgradeStation_ShouldCreateNewStation_WhenStationDoesNotExist()
         {
             // Arrange
@@ -210,13 +209,13 @@ namespace tarkovTest
             var result = service.UpgradeStation(1, 1);
 
             // Assert
-            Assert.IsTrue(result);
+            Assert.True(result);
             var userHideouts = service.GetUserHideouts(1);
-            Assert.AreEqual(1, userHideouts.Count);
-            Assert.AreEqual(1, userHideouts[0].StationLevel);
+            Assert.Single(userHideouts);
+            Assert.Equal(1, userHideouts[0].StationLevel);
         }
 
-        [TestMethod]
+        [Fact]
         public void UpgradeStation_ShouldReturnFalse_WhenAtMaxLevel()
         {
             // Arrange
@@ -235,9 +234,9 @@ namespace tarkovTest
             var result = service.UpgradeStation(1, 1);
 
             // Assert
-            Assert.IsFalse(result);
+            Assert.False(result);
             var userHideouts = service.GetUserHideouts(1);
-            Assert.AreEqual(3, userHideouts[0].StationLevel);
+            Assert.Equal(3, userHideouts[0].StationLevel);
         }
     }
 }

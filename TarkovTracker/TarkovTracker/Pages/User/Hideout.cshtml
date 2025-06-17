@@ -1,0 +1,93 @@
+@page
+@model TarkovTracker.Pages.User.HideoutModel
+@{
+    ViewData["Title"] = "My Hideout";
+    if (User.Identity.IsAuthenticated) Layout = "_LoggedInLayout";
+    else Layout = "_Layout";
+    var user = User;
+    ViewData["playername"] = user.Identity.IsAuthenticated ? user.Identity.Name : "Guest";
+    ViewData["role"] = user.IsInRole("admin") ? "admin" : "user";
+}
+
+<div class="container">
+    <h2>My Hideout</h2>
+
+    <div class="row">
+        <!-- Current Stations -->
+        <div class="col-md-8">
+            <h3>Current Stations</h3>
+            @if (Model.UserHideouts.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Station Name</th>
+                                <th>Level</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var hideout in Model.UserHideouts)
+                            {
+                                var station = Model.AllStations.FirstOrDefault(s => s.Id == hideout.StationId);
+                                var stationName = station?.Name ?? "Unknown Station";
+                                var canUpgrade = Model.CanUpgradeStations.GetValueOrDefault(hideout.StationId);
+                                <tr>
+                                    <td>@stationName</td>
+                                    <td>@hideout.StationLevel</td>
+                                    <td>
+                                        @if (canUpgrade)
+                                        {
+                                            <form method="post" class="d-inline">
+                                                <input type="hidden" name="stationId" value="@hideout.StationId" />
+                                                <button type="submit" asp-page-handler="Upgrade" class="btn btn-primary">
+                                                    <i class="fas fa-arrow-up"></i> Upgrade
+                                                </button>
+                                            </form>
+                                        }
+                                        else
+                                        {
+                                            <button class="btn btn-secondary" disabled>
+                                                <i class="fas fa-check"></i> Max Level
+                                            </button>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <p>You haven't built any stations yet.</p>
+            }
+        </div>
+
+        <div class="col-md-4">
+            <h3>Available Stations</h3>
+            @if (Model.AvailableStations.Any())
+            {
+                <div class="list-group">
+                    @foreach (var station in Model.AvailableStations)
+                    {
+                        <div class="list-group-item">
+                            <h5 class="mb-1">@station.Name</h5>
+                            <form method="post">
+                                <input type="hidden" name="stationId" value="@station.Id" />
+                                <button type="submit" asp-page-handler="AddStation" class="btn btn-success">
+                                    <i class="fas fa-plus"></i> Build Station
+                                </button>
+                            </form>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <p>No new stations available to build.</p>
+            }
+        </div>
+    </div>
+</div>
