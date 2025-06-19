@@ -24,8 +24,7 @@ namespace TarkovTrackerBLL.Service
         {
             var allStations = _hideoutStationService.GetAllStations();
             var userHideouts = _userHideoutService.GetAllUserHideouts(userId);
-
-            // Filter out stations that the user already has
+            //gets all stations that the user doesnt have yet
             return allStations.Where(station => 
                 !userHideouts.Any(uh => uh.StationId == station.Id)).ToList();
         }

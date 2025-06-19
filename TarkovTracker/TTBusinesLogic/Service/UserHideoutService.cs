@@ -1,11 +1,12 @@
 using BaseObjects.BaseObject;
 using TarkovTrackerDAL.Interfaces;
+using System;
 
 namespace TarkovTrackerBLL.Service
 {
     public class UserHideoutService
     {
-        private const int MAX_STATION_LEVEL = 3;
+        private const int MaxStationLevel = 3;
         private readonly IUserHideoutRepository _repository;
 
         public UserHideoutService(IUserHideoutRepository repository)
@@ -25,9 +26,8 @@ namespace TarkovTrackerBLL.Service
 
         public bool Add(UserHideout userHideout)
         {
-            if (userHideout.StationLevel < 0 || userHideout.StationLevel > MAX_STATION_LEVEL)
+            if (userHideout.StationLevel < 0 || userHideout.StationLevel > MaxStationLevel)
                 return false;
-
             return _repository.Add(userHideout);
         }
 
@@ -38,9 +38,8 @@ namespace TarkovTrackerBLL.Service
 
         public bool Update(UserHideout userHideout)
         {
-            if (userHideout.StationLevel < 0 || userHideout.StationLevel > MAX_STATION_LEVEL)
+            if (userHideout.StationLevel < 0 || userHideout.StationLevel > MaxStationLevel)
                 return false;
-
             return _repository.Update(userHideout);
         }
 
@@ -55,7 +54,7 @@ namespace TarkovTrackerBLL.Service
             }
 
             // Check if already at max level
-            if (userHideout.StationLevel >= MAX_STATION_LEVEL)
+            if (userHideout.StationLevel >= MaxStationLevel)
                 return false;
 
             // Increment the station level
@@ -66,7 +65,7 @@ namespace TarkovTrackerBLL.Service
         public bool CanUpgrade(int userId, int stationId)
         {
             var userHideout = _repository.GetByStationId(userId, stationId);
-            return userHideout == null || userHideout.StationLevel < MAX_STATION_LEVEL;
+            return userHideout == null || userHideout.StationLevel < MaxStationLevel;
         }
     }
 } 

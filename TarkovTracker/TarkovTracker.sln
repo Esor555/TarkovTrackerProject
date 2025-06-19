@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TarkovTrackerDAL", "TarkovT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseObjects", "BaseObjects\BaseObjects.csproj", "{C39F4CA9-1AA6-40AF-9479-19B45DAF4FFB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TarkovUnitTests", "TarkovUnitTests\TarkovUnitTests.csproj", "{C6F6C4E7-6B59-4DEF-8971-1E9307622418}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C39F4CA9-1AA6-40AF-9479-19B45DAF4FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C39F4CA9-1AA6-40AF-9479-19B45DAF4FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C39F4CA9-1AA6-40AF-9479-19B45DAF4FFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6F6C4E7-6B59-4DEF-8971-1E9307622418}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6F6C4E7-6B59-4DEF-8971-1E9307622418}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6F6C4E7-6B59-4DEF-8971-1E9307622418}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6F6C4E7-6B59-4DEF-8971-1E9307622418}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

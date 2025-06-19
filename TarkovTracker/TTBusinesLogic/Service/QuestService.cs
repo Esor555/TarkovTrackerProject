@@ -15,10 +15,16 @@ namespace TarkovTrackerBLL.Service
     {
         private readonly IquestRepository _questRepository;
 
+        public QuestService(IquestRepository questRepository)
+        {
+            _questRepository = questRepository ?? throw new ArgumentNullException(nameof(questRepository));
+        }
+
         public QuestService(string connectionString)
         {
             _questRepository = new QuestRepository(connectionString);
         }
+
         public List<Quest> GetAvailableStartingQuestsForUser(int userId, int userLevel, List<UserQuest> userQuests)
         {
             var allQuests = GetAllQuests();
@@ -26,7 +32,7 @@ namespace TarkovTrackerBLL.Service
             var assignedQuestIds = userQuests
                 .Where(q => q.UserId == userId)
                 .Select(q => q.QuestId)
-                .ToHashSet();
+                .ToList();
 
             return allQuests
                 .Where(q => q.PreviousQuestId == null &&
@@ -36,13 +42,13 @@ namespace TarkovTrackerBLL.Service
         }
         public List<Quest> GetQuestsByPreviousQuestId(int previousQuestId)
         {
-	        return _questRepository.GetAll()
-		        .Where(q => q.PreviousQuestId == previousQuestId)
-		        .ToList();
+            return _questRepository.GetAll()
+                .Where(q => q.PreviousQuestId == previousQuestId)
+                .ToList();
         }
 
 
-		public List<Quest> GetAllQuests()
+        public List<Quest> GetAllQuests()
         {
             return _questRepository.GetAll();
         }
@@ -59,12 +65,19 @@ namespace TarkovTrackerBLL.Service
 
         public bool AddQuest(Quest quest)
         {
-            if (string.IsNullOrWhiteSpace(quest.Title)) return false;
+            var validator = new TarkovTrackerBLL.Validators.QuestValidator();
+            var validationResult = validator.Validate(quest);
+            if (!validationResult.IsValid)
+                throw new ArgumentException(string.Join("; ", validationResult.Errors));
             return _questRepository.Add(quest);
         }
 
         public bool UpdateQuest(Quest quest)
         {
+            var validator = new TarkovTrackerBLL.Validators.QuestValidator();
+            var validationResult = validator.Validate(quest);
+            if (!validationResult.IsValid)
+                throw new ArgumentException(string.Join("; ", validationResult.Errors));
             return _questRepository.Update(quest);
         }
 

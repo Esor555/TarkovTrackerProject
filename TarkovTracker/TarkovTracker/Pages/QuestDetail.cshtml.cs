@@ -39,7 +39,7 @@
                 {
                     try
                     {
-                        TraderName = _traderService.GetById(Quest.TraderId).Name;
+                        TraderName = _traderService.GetTraderById(Quest.TraderId).Name;
                     }
                     catch (Exception e)
                     {

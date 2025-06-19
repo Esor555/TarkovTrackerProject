@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TTBusinesLogic\TarkovTrackerBLL.csproj" />
-    <ProjectReference Include="..\TTBusinesLogic\TTBusinesLogic.csproj" />
   </ItemGroup>
 
   <ItemGroup>

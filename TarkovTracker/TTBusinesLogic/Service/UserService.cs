@@ -19,6 +19,11 @@ namespace TarkovTrackerBLL.Service
     {
         private readonly IuserRepository _userRepository;
 
+        public UserService(IuserRepository userRepository)
+        {
+            _userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
+        }
+
         public UserService(string connectionString)
         {
             _userRepository = new UserRepository(connectionString);
@@ -35,7 +40,7 @@ namespace TarkovTrackerBLL.Service
             }
             catch (Exception ex)
             {
-                throw new ApplicationException($"Error retrieving user with ID {username}", ex);
+                throw new Exception($"Error retrieving user with ID {username}", ex);
             }
         }
         public List<User> GetAllUsers()
@@ -46,7 +51,7 @@ namespace TarkovTrackerBLL.Service
             }
             catch (Exception ex)
             {
-                throw new ApplicationException("Error retrieving users", ex);
+                throw new Exception("Error retrieving users", ex);
             }
         }
 
@@ -61,28 +66,25 @@ namespace TarkovTrackerBLL.Service
             }
             catch (Exception ex)
             {
-                throw new ApplicationException($"Error retrieving user with ID {id}", ex);
+                throw new Exception($"Error retrieving user with ID {id}", ex);
             }
         }
 
         public bool AddUser(User user)
         {
+            var validator = new UserValidator();
+            var validationResult = validator.Validate(user);
+            if (!validationResult.IsValid)
+                throw new ArgumentException(string.Join("; ", validationResult.Errors));
 
-			UserDTO userDTO = new UserDTO(user.Id, user.Name, user.Level, user.Faction, PasswordHasher.HashPassword(user.PasswordHash),user.Role);
-			
-            if (string.IsNullOrWhiteSpace(user.Name))
-                throw new ArgumentException("Username is required");
-
-            if (string.IsNullOrWhiteSpace(user.PasswordHash))
-                throw new ArgumentException("Password is required");
-
+            UserDTO userDTO = new UserDTO(user.Id, user.Name, user.Level, user.Faction, PasswordHasher.HashPassword(user.PasswordHash), user.Role);
             try
             {
                 return _userRepository.Add(userDTO);
             }
             catch (Exception ex)
             {
-                throw new ApplicationException("Error adding user", ex);
+                throw new Exception("Error adding user", ex);
             }
         }
 
@@ -97,23 +99,27 @@ namespace TarkovTrackerBLL.Service
             }
             catch (Exception ex)
             {
-                throw new ApplicationException($"Error deleting user with ID {id}", ex);
+                throw new Exception($"Error deleting user with ID {id}", ex);
             }
         }
 
         public bool UpdateUser(User user)
         {
-	        UserDTO userDTO = new UserDTO(user.Id, user.Name, user.Level, user.Faction, PasswordHasher.HashPassword(user.PasswordHash), user.Role);
-			if (user.Id <= 0)
-                throw new ArgumentException("Invalid user ID");
+            var validator = new UserValidator();
+            var validationResult = validator.Validate(user);
+            if (!validationResult.IsValid)
+                throw new ArgumentException(string.Join("; ", validationResult.Errors));
 
+            UserDTO userDTO = new UserDTO(user.Id, user.Name, user.Level, user.Faction, PasswordHasher.HashPassword(user.PasswordHash), user.Role);
+            if (user.Id <= 0)
+                throw new ArgumentException("Invalid user ID");
             try
             {
                 return _userRepository.Update(userDTO);
             }
             catch (Exception ex)
             {
-                throw new ApplicationException("Error updating user", ex);
+                throw new Exception("Error updating user", ex);
             }
         }
         public RegisterUserDTO RegisterUser(User user)
@@ -134,17 +140,18 @@ namespace TarkovTrackerBLL.Service
 
             try
             {
-                bool success = _userRepository.Add(userDTO);
-           
-               if (_userRepository.GetByName(userDTO.Username) != null) 
-                  {
+                if (_userRepository.GetByName(userDTO.Username) != null)
+                {
+                   
                     return new RegisterUserDTO
                     {
-                        Success = success,
+                        Success = false,
                         Errors = new List<string> { "A user with this name already exist" }
                     };
-                    }
-            
+                }
+
+                bool success = _userRepository.Add(userDTO); 
+
                 return new RegisterUserDTO
                 {
                     Success = success,

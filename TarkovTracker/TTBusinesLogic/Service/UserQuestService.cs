@@ -13,6 +13,10 @@ public class UserQuestService
 
     public bool Add(UserQuest userQuest)
     {
+        var validator = new TarkovTrackerBLL.Validators.UserQuestValidator();
+        var validationResult = validator.Validate(userQuest);
+        if (!validationResult.IsValid)
+            throw new ArgumentException(string.Join("; ", validationResult.Errors));
         return _IuserQuestRepository.Add(userQuest);
     }
 
@@ -28,6 +32,10 @@ public class UserQuestService
 
     public bool Update(UserQuest userQuest)
     {
+        var validator = new TarkovTrackerBLL.Validators.UserQuestValidator();
+        var validationResult = validator.Validate(userQuest);
+        if (!validationResult.IsValid)
+            throw new ArgumentException(string.Join("; ", validationResult.Errors));
         return _IuserQuestRepository.Update(userQuest);
     }
 }

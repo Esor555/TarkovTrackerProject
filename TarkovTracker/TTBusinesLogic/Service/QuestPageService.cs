@@ -13,15 +13,21 @@ namespace TarkovTrackerBLL.Service
             _userQuestService = userQuestService;
         }
 
-        public List<Quest> GetAllQuests() => _questService.GetAllQuests();
+        public List<Quest> GetAllQuests()
+        {
+            return _questService.GetAllQuests();
+        }
 
-        public List<UserQuest> GetUserInProgressQuests(int userId) =>
-            _userQuestService.GetAllUserQuests(userId)
+        public List<UserQuest> GetUserInProgressQuests(int userId)
+        {
+            return _userQuestService.GetAllUserQuests(userId)
                 .Where(q => q.Status == "InProgress")
                 .ToList();
+        }
 
-        public void AddQuest(Quest quest) => _questService.AddQuest(quest);
 
-        public void DeleteQuest(int questId) => _questService.DeleteQuest(questId);
+        public void AddQuest(Quest quest) { _questService.AddQuest(quest); }
+
+        public void DeleteQuest(int questId) { _questService.DeleteQuest(questId); }
     }
 }
