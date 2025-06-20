@@ -25,8 +25,11 @@
             public string TraderName { get; set; }
             public IActionResult OnGet()
             {
-                
-                if (Id <= 0)
+            if(!User.Identity.IsAuthenticated)
+            {
+                return RedirectToPage("Login");
+            }
+            if (Id <= 0)
                     return NotFound();
 
                 Quest = _questService.GetQuestById(Id);

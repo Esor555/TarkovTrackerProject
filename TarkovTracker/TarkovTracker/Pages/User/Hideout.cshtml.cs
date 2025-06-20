@@ -25,18 +25,24 @@ namespace TarkovTracker.Pages.User
             CanUpgradeStations = new Dictionary<int, bool>();
         }
 
-        public void OnGet()
+        public ActionResult OnGet()
         {
-            int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+			if (!User.Identity.IsAuthenticated)
+			{
+				return RedirectToPage("/Login");
+			}
+			int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
             UserHideouts = _pageService.GetUserHideouts(userId);
             AvailableStations = _pageService.GetAvailableStations(userId);
             AllStations = _hideoutStationService.GetAllStations();
 
-            // Check which stations can be upgraded
+
             foreach (var hideout in UserHideouts)
             {
                 CanUpgradeStations[hideout.StationId] = _pageService.CanUpgrade(userId, hideout.StationId);
             }
+
+            return Page();
         }
 
         public IActionResult OnPostAddStation(int stationId)

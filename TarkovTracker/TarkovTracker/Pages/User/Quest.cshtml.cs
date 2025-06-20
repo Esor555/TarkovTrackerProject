@@ -26,9 +26,15 @@ public class QuestsModel : PageModel
         _questService = questService;
     }
 
-    public void OnGet()
+    public ActionResult OnGet()
     {
-        int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+		if (!User.Identity.IsAuthenticated)
+		{
+			return RedirectToPage("/Login");
+		}
+		
+		
+		int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
 
         UserQuests = _pageService.GetUserQuests(userId);
 
@@ -53,7 +59,8 @@ public class QuestsModel : PageModel
                 UserQuests = _pageService.GetUserQuests(userId);
             }
         }
-    }
+        return Page();
+	}
 
     public IActionResult OnPostUpdateStatus(int questId, string newStatus)
     {

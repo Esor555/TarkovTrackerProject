@@ -34,7 +34,7 @@ namespace TarkovTracker.Pages
                 Level = UserDto.Level ?? 0,
                 Faction = UserDto.Faction ?? Faction.USEC,
                 PasswordHash = UserDto.password,
-                Role = UserDto.role ?? "user"
+                Role = "user"
             };
 
             var result = _userService.RegisterUser(newUser);

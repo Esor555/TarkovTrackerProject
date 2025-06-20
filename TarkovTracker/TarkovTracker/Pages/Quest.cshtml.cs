@@ -30,13 +30,22 @@ public class IndexModel : PageModel
     public List<Quest> Quests { get; set; }
     public List<UserQuest> UserQuests { get; set; }
 
-    public void OnGet()
+    public ActionResult OnGet()
     {
-        int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+        if (!User.Identity.IsAuthenticated)
+        {
+            return RedirectToPage("Login");
+        }
+        if (!User.IsInRole("admin"))
+        {
+            return RedirectToPage("Index");
+        }
+            int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
         Quests = _questService.GetAllQuests();
         UserQuests = _userQuestService.GetAllUserQuests(userId)
             .Where(q => q.Status == "InProgress")
             .ToList();
+        return Page();
     }
 
     public IActionResult OnPostAdd()

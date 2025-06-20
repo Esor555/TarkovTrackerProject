@@ -23,11 +23,20 @@ namespace TarkovTracker.Pages.Hideout
         [BindProperty]
         public HideoutDTO HideoutStation { get; set; }
 
-        public void OnGet()
-        {
-            HideoutStations = _hideoutService.GetAllStations();
-  
-        }
+        public ActionResult OnGet()
+			{
+            if(!User.Identity.IsAuthenticated)
+            {
+                return RedirectToPage("/Login");
+            }
+            if (!User.IsInRole("admin"))
+            {
+                return RedirectToPage("/Index");
+            }
+       HideoutStations = _hideoutService.GetAllStations();
+            return Page();
+            
+		}
 
         public IActionResult OnPostAdd()
         {
@@ -37,7 +46,7 @@ namespace TarkovTracker.Pages.Hideout
                 return Page();
             }
 
-            HideoutStation hideout = new HideoutStation(HideoutStation.id, HideoutStation.name);
+            HideoutStation hideout = new HideoutStation(null, HideoutStation.name);
             _hideoutService.AddStation(hideout);
             return RedirectToPage();
         }

@@ -3,9 +3,9 @@
 
     public class HideoutStation
     {
-        private int id;
+        private int? id;
 
-        public int Id
+        public int? Id
         {
             get => id;
             set => id = value;
@@ -19,7 +19,7 @@
             set => name = value;
         }
 
-        public HideoutStation(int id, string name)
+        public HideoutStation(int? id, string name)
         {
             Id = id;
             Name = name;
